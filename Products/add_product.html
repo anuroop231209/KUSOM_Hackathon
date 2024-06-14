@@ -2,27 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewpiont" content="width="width="device-wdith, initial-scale=1.0">
-    <title>
-        User Resgistration
-    </title>
-    <script>
-        src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="add-product.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<form id="Resgistrationform" action="Product-upload.php" method="post">
-    <label for="Name">Name</label>
-    <input type="text" id="Name"name="Name" required placeholder="Enter your name"><br>
+    <form id="registrationForm" action="Product-upload.php" method="post">
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" required placeholder="Enter your name"><br>
 
-    <label for="Price"></label>
-    <input type="number" id="Price" name="Price" placeholder="Enter amount" required><br>
-    
-    <label for="Description"> Description:</label>
-    <input type="text" id="Description" name="Description" placeholder="Description"><br>
-    
-    <button type="submit">Resgister</button>
-    
-</form>
+        <label for="Price">Price</label>
+        <input type="number" id="Price" name="Price" placeholder="Enter amount" required><br>
+        
+        <label for="Description">Description</label>
+        <input type="text" id="Description" name="Description" placeholder="Description"><br>
+        
+        <button type="submit">Register</button>
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Handle form submission
+            document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                axios.post('Product-upload.php', formData)
+                    .then(response => {
+                        const data = response.data;
+                        alert(data.message);
+                        if (data.success) {
+                            window.location.href = 'success.html';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error submitting form:', error);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
