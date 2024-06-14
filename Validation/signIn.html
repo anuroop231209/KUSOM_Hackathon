@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewpiont" content="width=device-wdth, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
 </head>
 <body>
+    <div>
+        <img class="logo" src="Validation/star_sparkle_stars_sparkles_icon_new.png"  alt="logo">
 
+    </div>
+    <div class="CompanyNmae">ProBook</div>
+    <div class="container">
+        <form id="login-form" action="submit.php" method="post">
+            <h2>Sign in</h2>
+
+            <label for="email" >Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" require>
+            <span id="emailError" class="error-message"></span>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <span id="passwordError" class="error-message"></span>
+
+            <button type="submit">Submit</button>
+        </form>
+        <span id="serverError" class="error-message"></span>
+        <span id="serverSucess" class="success-message"></span>
+
+
+
+    </div>
+    <script>
+    
+    </script>
 </body>
 </html>
