@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New credit</title>
     <link rel="stylesheet" href="credit.css">
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
 </head>
-<body>
+<body id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
     <div class="container">
         <div class="new-credits">x
          <h2>New Credit</h2>
@@ -50,6 +54,7 @@
         </table>
      </div>
  </div>
- 
+ <script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>
