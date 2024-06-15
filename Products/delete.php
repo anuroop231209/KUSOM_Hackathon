@@ -1,15 +1,14 @@
 <?php
-include_once("../../Config/config.php");
+include_once("../Config/config.php");
 
 if (isset($_GET['ProductID'])) {
-    $id = htmlspecialchars($_GET['ProductID']);
+    $id = htmlspecialchars($_GET['product_id']);
 
     try {
-        $query = "DELETE FROM Products WHERE ProductID = :id";
+        $query = "DELETE FROM Product WHERE product_id = :id";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-
         header("Location: Product-list.php"); // Redirect back to the main page
         exit;
     } catch (PDOException $e) {

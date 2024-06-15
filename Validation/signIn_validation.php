@@ -8,37 +8,38 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $email = $_POST["inputEmail"];
     $password = $_POST["inputPassword"];
     try{
-        $query = "SELECT user_id,password from users WHERE email = :email";
+        $query = "SELECT user_id,firstName,lastName,password from users WHERE email = :email";
         $stmt = $conn->prepare($query);
         $stmt->bindValue(":email",$email);
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($result) {
+            if(password_verify($password,$result['password'])){
+                $_SESSION['user_id'] = $result['user_id'];
+                $_SESSION['firstName'] = $result['firstName'];
+                $_SESSION['lastName'] = $result['lastName'];
+                $response = [
+                    'success' => true,
+                    'message' => "Logged in successfully. Redirecting to Dashboard in 3 Seconds."
+                ];
+            }else{
+                $response = [
+                    'success' => false,
+                    'message' => "Invalid email or password"
+                ];
+            }
+        } else {
+            $response = [
+                'success' => false,
+                'message' => "Invalid email or password"
+            ];
+        }
     }catch(PDOException $e){
         $response = [
             'success' => false,
             'message' => "Error: ".$e->getMessage()
         ];
     }
-    if($result) {
-        if(password_verify($password,$result['password'])){
-            $_SESSION['user_id'] = $result['user_id'];
-            $response = [
-                'success' => true,
-                'message' => "User logged in successfully"
-            ];
-        }else{
-            $response = [
-                'success' => false,
-                'message' => "Invalid email or password"
-            ];
-            exit();
-        }
-    } else {
-        $response = [
-            'success' => false,
-            'message' => "Invalid email or password"
-        ];
-        exit();
-    }
+
     echo json_encode($response);
 }
