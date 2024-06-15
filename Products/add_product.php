@@ -18,10 +18,6 @@ include_once("../Sidebar/sidebar.html");
 <div class="reg">
     <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
         <label for="product-registiration"><h2> Product Registration</h2></label>
-<<<<<<< HEAD
-=======
-
->>>>>>> 05b738f4bf8379bb463048950a5b8f6a09ada05e
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter product name"><br>
 
