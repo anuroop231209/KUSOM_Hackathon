@@ -21,7 +21,7 @@
                 border: 1px solid lightgray;
                 text-align: left;
             }
-}
+
 </style>
 </head>
 <body id="body-pd" >

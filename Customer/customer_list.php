@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="h-full bg-light" id="body-pd">
+<body id="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
