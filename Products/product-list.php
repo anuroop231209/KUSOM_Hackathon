@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="h-full bg-light">
+
 <h2>CRM Accounts</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
@@ -23,18 +24,9 @@
         <tbody>
         <?php
         include_once("../Config/config.php");
-        if(!isset($_SESSION['user_id'])){
-            header('Location: ../Validation/signIn.html');
-            exit();
-        }
+        include_once("../API/Fetch/fetch_product.php");
         try {
-            $user_id = $_SESSION['user_id'];
-            $query = "SELECT * FROM Product where user_id=:user_id ORDER BY product_id DESC";
-            $stmt = $conn->prepare($query);
-            $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+            $result = $product;
             if (count($result) > 0) {
                 foreach ($result as $data) {
                     echo '
