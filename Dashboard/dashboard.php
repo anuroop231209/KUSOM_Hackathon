@@ -6,6 +6,14 @@
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<?php
+include_once '../Sidebar/sidebar.html';
+include '../Config/config.php';
+if(!isset($_SESSION['user_id'])){
+    header('Location: ../Validation/signIn.html');
+    exit();
+}
+?>
 <body>
     <div class="main-container">
     <div class="column-1">

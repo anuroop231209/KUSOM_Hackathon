@@ -14,9 +14,9 @@
         <img class="logo" src="star_sparkle_stars_sparkles_icon_new.png"  alt="logo">
 
     </div>
-    <div class="CompanyNmae">ProBook</div>
+    <div class="CompanyName">ProBook</div>
     <div class="container">
-        <form id="login-form" action="submit.php" method="post">
+        <form id="loginform">
             <h2>Sign in</h2>
 
             <label for="email" >Email</label>
@@ -30,7 +30,7 @@
             <button type="submit">Submit</button>
         </form>
         <span id="serverError" class="error-message"></span>
-        <span id="serverSucess" class="success-message"></span>
+        <span id="serverSuccess" class="success-message"></span>
 
 
 
@@ -39,22 +39,20 @@
         document.getElementById('loginform').addEventListener('submit',function(event){
             event.preventDefault();
             let serverError= document.getElementById('serverError');
-            let serverSucess= document.getElementById('serverSucess');
+            let serverSuccess= document.getElementById('serverSuccess');
 
             serverError.textContent='';
-            serverSucess.textContent='';
+            serverSuccess.textContent='';
 
-            const form=document.getElementById('login form');
+            const formData = new FormData(this);
             
             // axios post request 
-            axios.post('submit.php',new FormData(form))
+            axios.post('signIn_validation.php',formData)
             .then(function(response){
-                if(response.data.Sucess) {
-                    //display the sucess message to the user
-                    serverSucess.textContent=response.data.message;
+                if(response.data.success) {
+                    serverSuccess.textContent=response.data.message;
                     setTimeout(()=>{
-                        window.location.href='';
-            
+                       window.location.href ="../Dashboard/dashboard.php";
                     },3000);
             } else {
                 //display error message to the user
