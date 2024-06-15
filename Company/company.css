@@ -96,3 +96,34 @@ button {
 button:hover {
     background-color: #1c2689;
 }
+
+/* Error message styles */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: 20px;
+        padding-top: 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    input, textarea {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
