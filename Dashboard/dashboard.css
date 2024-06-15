@@ -20,6 +20,17 @@ row-gap:10px;
   background-color: rgb(111, 141, 141);
 }
 
+.graph-row-1:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.graph{
+  width:680px;
+  height:300px;
+  padding-left:20px;
+}
+
+
 .graph-row-2{
   background-color: black;
   display:grid;
@@ -28,7 +39,9 @@ row-gap:10px;
 }
 
 .pie{
-  background: pink;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius:  8px 8px 8px 8px;
+margin-bottom:8px;
 }
 
 .container{
