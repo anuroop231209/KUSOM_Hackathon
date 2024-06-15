@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="h-full bg-light">
+<body class="h-full bg-light" id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
 <h2>CRM Accounts</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
@@ -53,7 +56,8 @@
     </table>
 </div>
 
-<!-- Bootstrap JavaScript (optional) -->
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
