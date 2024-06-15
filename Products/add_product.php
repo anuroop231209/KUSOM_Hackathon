@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="add-product.css">
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
@@ -29,8 +31,9 @@ include_once("../Sidebar/sidebar.html");
         <button type="submit">Register</button>
         <span id="serverError" class="error-message"></span>
         <span id="serverSuccess" class="success-message"></span>
-    </div>
     </form>
+</div>
+
     <script>
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
                 event.preventDefault();

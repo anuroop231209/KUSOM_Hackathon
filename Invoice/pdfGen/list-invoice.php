@@ -27,8 +27,10 @@
         include_once("../../Config/config.php");
 
         try {
-            $query = "SELECT * FROM Invoice ORDER BY invoice_id DESC";
+            $user_id = $_SESSION['user_id'];
+            $query = "SELECT * FROM Invoice WHERE user_id=:user_id ORDER BY invoice_id DESC";
             $stmt = $conn->prepare($query);
+            $stmt->bindParam(':user_id', $user_id);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

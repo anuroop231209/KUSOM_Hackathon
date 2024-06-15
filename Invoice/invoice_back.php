@@ -2,9 +2,12 @@
 include '../Config/config.php';
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+        $user_id = $_SESSION['user_id'];
+
         $response =[];
 
-        $customer_id = $_POST['customer_id'];
+        $customer_id = $_POST['customer_id']??null;
+        $business_id = $_POST['company_id']??null;
         $product_id = $_POST['ProductID'];
         $invoice_number = $_POST['invoiceNumber'];
         $invoice_date = $_POST['invoiceDate'];
@@ -15,24 +18,18 @@ include '../Config/config.php';
         $discount = $_POST['discount'];
         $notes = $_POST['notes'];
 
-        $query2="SELECT company_id FROM Customer where customer_id = :customer_id";
-        $stmt2 = $conn->prepare($query2);
-        $stmt2->bindParam(':customer_id', $customer_id);
-        $stmt2->execute();
-        $business_id = $stmt2->fetchColumn();
-
-        // Calculations
         $subtotal = $quantity * $rate;
         $discountAmount = ($subtotal * $discount) / 100;
         $discountedSubtotal = $subtotal - $discountAmount;
         $tax = $discountedSubtotal * 0.13;
         $total_amount = $discountedSubtotal + $tax;
 
-        $query = 'INSERT INTO Fetch (customer_id, product_id, business_id, invoice_number, invoice_date, invoice_due_date, terms, quantity, rate, discount, subtotal, tax, total_amount, notes) VALUES (:customer_id, :product_id, :business_id, :invoice_number, :invoice_date, :invoice_due_date, :terms, :quantity, :rate, :discount, :subtotal, :tax, :total_amount, :notes)';
+        $query = 'INSERT INTO Invoice (user_id,customer_id, product_id, business_id, invoice_number, invoice_date, invoice_due_date, terms, quantity, rate, discount, subtotal, tax, total_amount, notes) VALUES (:user_id,:customer_id, :product_id, :business_id, :invoice_number, :invoice_date, :invoice_due_date, :terms, :quantity, :rate, :discount, :subtotal, :tax, :total_amount, :notes)';
         // Insert into Fetch table
      try {
 
          $stmt = $conn->prepare($query);
+         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':customer_id', $customer_id);
         $stmt->bindParam(':product_id', $product_id);
         $stmt->bindParam(':business_id', $business_id);

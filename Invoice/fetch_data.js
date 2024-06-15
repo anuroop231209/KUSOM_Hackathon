@@ -1,22 +1,64 @@
 document.addEventListener("DOMContentLoaded", function() {
-    axios.get('../API/Fetch/fetch_customer.php')
-        .then(response => {
-            const customers = response.data;
-            const customerSelect = document.getElementById('customerSelect');
-            if (customers.length === 0) {
-                alert('No customers found. Add customer .');
-            } else {
-                customers.forEach(customer => {
-                    const option = document.createElement('option');
-                    option.value = customer.customer_id;
-                    option.textContent = customer.firstname;
-                    customerSelect.appendChild(option);
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching customer:', error);
-        });
+
+     window.onload = function() {
+         let customerSelector = document.getElementById('customerSelector');
+         let companySelector = document.getElementById('companySelector');
+         customerSelector.style.display = 'none';
+         companySelector.style.display = 'none';
+         document.getElementById('customerType').addEventListener('change', function () {
+             const selectedValue = this.value;
+             if (selectedValue === 'customer') {
+                 alert('Customer selected');
+                 customerSelector.style.display = 'block';
+                 companySelector.style.display = 'none';
+                 axios.get('../API/Fetch/fetch_customer.php')
+                     .then(response => {
+                         const customers = response.data;
+                       const  customerSelect = document.getElementById('customerSelect');
+                         if (customers.length === 0) {
+                             alert('No customers found. Add customer .');
+                         } else {
+                             customers.forEach(customer => {
+                                 const option = document.createElement('option');
+                                 option.value = customer.customer_id;
+                                 option.textContent = customer.firstname;
+                                 customerSelect.appendChild(option);
+                             });
+                         }
+                     })
+                     .catch(error => {
+                         console.error('Error fetching customer:', error);
+                     });
+
+             } else if (selectedValue === 'company') {
+                 alert('Company selected');
+                 customerSelector.style.display = 'none';
+                 companySelector.style.display = 'block';
+                 axios.get('../API/Fetch/fetch_company.php')
+                     .then(response => {
+                         const company = response.data;
+                         console.log(company);
+                        const companySelect = document.getElementById('companySelect');
+                         if (company.length === 0) {
+                             alert('No Company found. Add company .');
+                         } else {
+                             company.forEach(company => {
+                                 const option = document.createElement('option');
+                                 option.value = company.company_id;
+                                 option.textContent = company.companyName;
+                                 companySelect.appendChild(option);
+                             });
+                         }
+                     })
+                     .catch(error => {
+                         console.error('Error fetching company:', error);
+                     });
+             }
+
+         });
+     }
+
+
 
     axios.get('../API/Fetch/fetch_product.php')
         .then(response => {

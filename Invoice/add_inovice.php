@@ -23,9 +23,23 @@ include_once("../Sidebar/sidebar.html");
                 <div class="card-body">
                     <form id="clientForm">
                         <div class="form-group">
-                            <label for="customerSelect">Client Name</label>
+                            <label for="customerType">Customer Type</label>
+                            <select name="customerType" class="form-control" id="customerType" required>
+                                <option value="">Select a customer type</option>
+                                <option value="customer">Customer</option>
+                                <option value="company">Company</option>
+                            </select>
+                        </div>
+                        <div id="customerSelector" class="form-group" >
+                            <label for="customerSelect">Customer Name</label>
                             <select id="customerSelect" name="customer_id" class="form-control" required>
                                 <option value="">Select a customer</option>
+                            </select>
+                        </div>
+                        <div id="companySelector" class="form-group">
+                            <label for="companySelect">Company Name</label>
+                            <select id="companySelect" name="company_id" class="form-control" required>
+                                <option value="">Select a Company</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -124,23 +138,31 @@ include_once("../Sidebar/sidebar.html");
         invoiceData.forEach((value, key) => {
             formData.append(key, value);
         });
+        console.log(formData);
 
         axios.post('invoice_back.php', formData)
             .then(response => {
-                console.log(response.data);
-                successMessage.innerHTML = response.data;
-                successMessage.style.display = 'block';
-                failureMessage.style.display = 'none';
+              if(response.data.success) {
+                  console.log(response.data);
+                  successMessage.textContent = response.data;
+                  successMessage.style.display = 'block';
+                  failureMessage.style.display = 'none';
+              }else{
+                  console.log(response.data);
+                    failureMessage.textContent = response.data;
+                    failureMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+              }
             })
             .catch(error => {
                 console.log(error);
-                failureMessage.innerHTML = 'Error: ' + error.response.data;
+                failureMessage.textContent= 'Error: ' + error.message;
                 failureMessage.style.display = 'block';
                 successMessage.style.display = 'none';
             });
     }
 </script>
 <script src="../Sidebar/main.js"></script>
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<x></x>
 </body>
 </html>
