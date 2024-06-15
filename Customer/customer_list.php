@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Sidebar/styles.css">
 <style>
     .contain{
-        margin-left: 60px;
+        margin-left: 96px;
     }
 </style>
 
