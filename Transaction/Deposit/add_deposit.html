@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New credit</title>
-    <link rel="stylesheet" href="credit.css">
+    <link rel="stylesheet" href="deposit.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
 </head>
 <body>
     <div class="container">
         <div class="new-credits">x
-         <h2>New Credit</h2>
-            <form id="credit-form" method="post" action="uploadnewcredit.php">
+         <h2>New Deposit</h2>
+            <form id="credit-form" method="post" action="uploadnewdeposit.php">
             <div class="form group">
             <label for="from">Account</label>
             <select id="from" name="from">
@@ -35,8 +35,8 @@
 
     </form>
     </div>
-    <div class="recent credits">
-        <h2>Recent credits</h2>
+    <div class="recent deposits">
+        <h2>Recent deposits</h2>
         <table>
             <thead>
                 <tr>
@@ -44,8 +44,8 @@
                     <th>Amount</th>
                 </tr>
             </thead>
-            <tbody id="recent-credits-body">
-                <!-- Recent credits will be populated here-->
+            <tbody id="recent-deposits-body">
+                <!-- Recent transfer will be populated here-->
             </tbody>
         </table>
      </div>
