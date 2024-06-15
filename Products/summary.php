@@ -2,7 +2,7 @@
 include_once("../Config/config.php");
 
 
-if (isset($_GET['ProductID'])) {
+if (isset($_GET['product_id'])) {
     $id = htmlspecialchars($_GET['product_id']);
 
     try {

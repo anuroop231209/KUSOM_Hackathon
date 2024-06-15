@@ -1,10 +1,6 @@
 <?php
-include_once '../../Config/config.php';
+include_once("../../Config/config.php");
 
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../Validation/signIn.html');
-    exit();
-}
 try {
     $user_id = $_SESSION['user_id'];
     $query = "SELECT * FROM Product where user_id= :user_id ORDER BY product_id DESC";
