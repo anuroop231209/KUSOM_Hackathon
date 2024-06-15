@@ -22,11 +22,16 @@
         </thead>
         <tbody>
         <?php
-        include_once("../../Config/config.php");
-
+        include_once("../Config/config.php");
+        if(!isset($_SESSION['user_id'])){
+            header('Location: ../Validation/signIn.html');
+            exit();
+        }
         try {
-            $query = "SELECT * FROM Products ORDER BY ProductID DESC";
+            $user_id = $_SESSION['user_id'];
+            $query = "SELECT * FROM Product where user_id=:user_id ORDER BY product_id DESC";
             $stmt = $conn->prepare($query);
+            $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -34,13 +39,13 @@
                 foreach ($result as $data) {
                     echo '
                     <tr>
-                        <td class="p-2">'.htmlspecialchars($data['ProductID']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['Name']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['Price']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['Description']).'</td>
+                        <td class="p-2">'.htmlspecialchars($data['product_id']).'</td>
+                        <td class="p-2">'.htmlspecialchars($data['productName']).'</td>
+                        <td class="p-2">'.htmlspecialchars($data['productPrice']).'</td>
+                        <td class="p-2">'.htmlspecialchars($data['productDescription']).'</td>
                         <td class="p-2">
-                            <a href="summary.php?ProductID='.htmlspecialchars($data['ProductID']).'" class="btn btn-info btn-sm">View</a>
-                            <a href="delete.php?ProductID='.htmlspecialchars($data['ProductID']).'" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="summary.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-info btn-sm">View</a>
+                            <a href="delete.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>';
                 }

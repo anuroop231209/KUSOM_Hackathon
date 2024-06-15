@@ -1,14 +1,20 @@
 <?php
-include("../../Config/config.php");
+include("../Config/config.php");
+
+if(isset($_SESSION['user_id'])){
+    header('Location: ../Validation/signIn.html');
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Name = $_POST['Name'];
     $Price = $_POST['Price'];
     $Description = $_POST['Description'];
 
+    $user_id = $_SERVER['user_id'];
+
     $response = [];
 
-    // Client-side-like validation
     if (empty($Name) || empty($Price)) {
         $response = [
             'success' => false,
@@ -16,8 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
     } else {
         try {
-            $query = "INSERT INTO Products (Name, Price, Description) VALUES (:Name, :Price, :Description)";
+            $query = "INSERT INTO Product (user_id, productName, productPrice, productDescription) VALUES (:user_id,:Name, :Price, :Description)";
             $stmt = $conn->prepare($query);
+            $stmt->bindParam(':user_id', $user_id);
             $stmt->bindParam(':Name', $Name);
             $stmt->bindParam(':Price', $Price);
             $stmt->bindParam(':Description', $Description);
@@ -38,8 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'success' => false,
                 'message' => "Error: " . $e->getMessage()
             ];
-            // Log error or handle as necessary
         }
     }
-    echo json_encode($response); // Send JSON response
+    echo json_encode($response);
 }
