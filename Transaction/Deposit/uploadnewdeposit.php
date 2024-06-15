@@ -1,6 +1,6 @@
 <?php
 // Include your existing database connection file
-include '../../Backend/Config/config.php';
+include_once("../../Config/config.php");
 
 header('Content-Type: application/json');
 

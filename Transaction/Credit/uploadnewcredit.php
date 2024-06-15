@@ -1,6 +1,6 @@
 <?php
 // Include your existing database connection file
-include '../../Backend/Config/config.php';
+include_once("../../Config/config.php");
 
 header('Content-Type: application/json');
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
 
         // Prepare and execute the SQL insert statement
-        $query ="INSERT INTO Credit (creditName, creditDate, creditDescription, creditAmount) VALUES (:account, :date, :description, :amount)";
+        $query ="INSERT INTO Debit (debitAccount, debitDate, debitDescription, debitAmount) VALUES (:account, :date, :description, :amount)";
         $stmt=$conn->prepare($query);
         $stmt->bindParam(':account', $account);
         $stmt->bindParam(':date', $date);
@@ -34,12 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($stmt->execute()){
             $response=[
                 'success' => true,
-                'message' => 'Credit added successfully'
+                'message' => 'Deposit added successfully'
             ];
         }else{
             $response=[
                 'success' => false,
-                'message' => 'Failed to add credit'
+                'message' => 'Failed to add deposit'
             ];
         }
 
