@@ -1,45 +1,57 @@
 <?php
-//Include your existing database connection file
+// Include your existing database connection file
 include '../../Backend/Config/config.php';
 
 header('Content-Type: application/json');
 
-try{
-    //Handle form submission
-    if($_SERVER['REQUEST_METHOD']=='POST'){
-        //Get data from POST request
-        $account = $_POST['from'];
-        $date = $_POST['date'];
-        $description = $_POST['description'];
-        $amount = $_POST['amount'];
 
-        //Prepare and execute the SQL insert statement
-        $stmt = $conn->prepare("INSERT INTO transactions (account, date, description, amount) VALUES (:account, :date, :description, :amount)");
-        $stmt->execute([
-            ':account'=> $account,
-            ':date'=> $date,
-            ':description'=> $description,
-            ':amount'=> $amount
-        ]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get data from POST request
+    $account = $_POST['from'];
+    $date = $_POST['date'];
+    $description = $_POST['description'];
+    $amount = $_POST['amount'];
+    $response=[];
 
-        //Return success response
-        echo json_encode(['status'=> 'success','message' => 'New credit added successfully' ]);
-        } 
-        //Handle fetch recent credits
-        else if($_SERVER['REQUEST_METHOD'] == 'GET'){
-            //Prepare and execute the SQL select statement
-            $stmt = $conn->query("SELECT description, amount FROM credits ORDER BY id DESC LIMIT 10");
-            $credits = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            // Check if there are any credits
-            if (empty($credits)) {
-                echo json_encode(['status' => 'empty', 'message' => 'No transactions']);
-            } else {
-                echo json_encode(['status' => 'success', 'data' => $credits]);
-            }
-        }
-    } catch (PDOException $e) {
-        // Return error response
-        echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
+    if(empty($account) || empty($date) || empty($amount) || empty($description)){
+        $response=[
+            'success' => false,
+            'message' => 'All fields are required'
+        ];
     }
-    ?>
+    else{
+
+        try {
+
+        // Prepare and execute the SQL insert statement
+        $query ="INSERT INTO Credit (creditName, creditDate, creditDescription, creditAmount) VALUES (:account, :date, :description, :amount)";
+        $stmt=$conn->prepare($query);
+        $stmt->bindParam(':account', $account);
+        $stmt->bindParam(':date', $date);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':amount', $amount);
+
+        if($stmt->execute()){
+            $response=[
+                'success' => true,
+                'message' => 'Credit added successfully'
+            ];
+        }else{
+            $response=[
+                'success' => false,
+                'message' => 'Failed to add credit'
+            ];
+        }
+
+        }catch (PDOException $e) {
+            $response=[
+                'success' => false,
+                'message' =>"Error:" . $e->getMessage()
+            ];
+
+        }
+    }
+    echo json_encode($response);
+}
+
+?>
