@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Debit</title>
     <link rel="stylesheet" href="Debit.css">
-    <link rel="stylesheet" href="../Sidebar/styles.css">
+    <link rel="stylesheet" href="../../sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body id="body-pd">
+<body id="body-pd" class="body-pd">
 <?php
-include_once("../Sidebar/sidebar.html");
+include_once("../../sidebar/sidebar.html");
 ?>
     <div class="container">
         <div class="new-deposits">
@@ -76,7 +76,7 @@ include_once("../Sidebar/sidebar.html");
              });
 
 </script>
- <script src="../Sidebar/main.js"></script>
+ <script src="../../sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>

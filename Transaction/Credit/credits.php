@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body id="body-pd">
+<body id="body-pd" class="body-pd">
 <?php
 include_once("../../Sidebar/sidebar.html");
 ?>

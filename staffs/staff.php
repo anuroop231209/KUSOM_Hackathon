@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="staffs.css">
     <link rel="stylesheet" href="../Sidebar/styles.css">
 </head>
-<body id="body-pd" >
+<body id="body-pd" class="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>    
+<h3>Staff List</h3>
     <form id="dataForm" >
         <table id="dataTable">
             <thead>

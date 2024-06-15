@@ -9,14 +9,15 @@
                 <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
                 <a href="#" class="nav__logo">PROBOOK</a>
             </div>
-            <div class="nav__list">
-                <a href="../Dashboard/dashboard.php" class="nav__link active">
+            <div class="nav__list" >
+                <a id="dashboard" href="../Dashboard/dashboard.php" class="nav__link ">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Dashboard</span>
                 </a>
 
-                <div  class="nav__link collapse root__collapse ">
-                    <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                <div id="company"
+                 class="nav__link collapse root__collapse ">
+                    <ion-icon name="folder-outline" class="nav__icon "></ion-icon>
                     <span class="nav__name">Company</span>
 
                     <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
@@ -26,7 +27,7 @@
                         <a href="../Company/company_list.php" class="collapse__sublink">List Company</a>
                     </ul>
                 </div>
-                <div  class="nav__link collapse root__collapse">
+                <div  id="customer" class="nav__link collapse root__collapse">
                     <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Customer</span>
 
@@ -38,7 +39,7 @@
                         <a href="../Customer/customer_list.php" class="collapse__sublink">List Customer</a>
                     </ul>
                 </div>
-                <div  class="nav__link collapse root__collapse">
+                <div  id="product" class="nav__link collapse root__collapse">
                     <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Product</span>
 
@@ -51,7 +52,7 @@
                     </ul>
                 </div>
 
-                <div  class="nav__link collapse root__collapse">
+                <div id="transactions" class="nav__link collapse root__collapse">
                     <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Transactions</span>
 
@@ -66,7 +67,7 @@
                     </ul>
                 </div>
 
-                <div  class="nav__link collapse root__collapse">
+                <div  id="invoice" class="nav__link collapse root__collapse">
                     <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Invoice</span>
 
