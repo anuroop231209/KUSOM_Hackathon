@@ -122,5 +122,7 @@ include_once("../Sidebar/sidebar.html");
 
 <!-- Bootstrap JavaScript (optional) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>
