@@ -7,3 +7,23 @@ document.getElementById('add-task').addEventListener('click', function() {
       taskInput.value = '';
   }
 });
+
+function addTask(taskText) {
+  const taskList = document.getElementById('task-list');
+  
+  const listItem = document.createElement('li');
+  listItem.textContent = taskText;
+  
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', function() {
+      taskList.removeChild(listItem);
+  });
+  
+  listItem.addEventListener('click', function() {
+      listItem.classList.toggle('completed');
+  });
+  
+  listItem.appendChild(deleteButton);
+  taskList.appendChild(listItem);
+}
