@@ -35,7 +35,7 @@
                         <td class="p-2">'.htmlspecialchars($data['firstname'] .' '. $data['lastname']).'</td>
                         <td class="p-2">'.htmlspecialchars($data['email']).'</td>
                         <td class="p-2">'.htmlspecialchars($data['phone']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['street'].', '.$data['city']).'</td>
+                        <td class="p-2">'.htmlspecialchars($data['street'].', '.$data['city'].', '. $data['country']).'</td>
                         <td class="p-2">
                             <a href="summary.php?customer_id='.htmlspecialchars($data['customer_id']).'" class="btn btn-info btn-sm">View</a>
                             <a href="delete.php?customer_id='.htmlspecialchars($data['customer_id']).'" class="btn btn-danger btn-sm">Delete</a>
