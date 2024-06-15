@@ -82,3 +82,25 @@ document.addEventListener("DOMContentLoaded", function(event){
             }
         });
     
+        // Helper function to validate email format
+        function isValidEmail(email) {
+            // Basic email format validation (you can enhance this as per your requirements)
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    
+        // Helper function to validate phone number format (98XXXXXXXX)
+        function isValidPhoneNumber(phoneNumber) {
+            let phoneRegex = /^98\d{8}$/;
+            return phoneRegex.test(phoneNumber);
+        }
+    
+        // Helper function to validate landline number format (025-XXXXXXX)
+        function isValidLandlineNumber(landlineNumber) {
+            let landlineRegex = /^025-\d{7}$/;
+            return landlineRegex.test(landlineNumber);
+        }
+    });
+    
+
+});
