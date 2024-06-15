@@ -17,30 +17,30 @@ include_once("../Sidebar/sidebar.html");
 ?>   
     <div class="container">
         <form id="registrationForm" action="../API/Insert/insert_customer.php" method="post">
-            <h2>Add Customer</h2>
+            <h2>Add Customer</h2><br>
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required>
+            <input type="text" id="firstName" name="firstName" class="first" required>
 
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required>
+            <label for="lastName" class="last" >Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="second" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email"  >Email:</label>
+            <input type="email" id="email" name="email"class="first" required>
 
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" required>
+            <label for="phone" class="last" >Phone:</label>
+            <input type="text" id="phone" name="phone" class="second" required>
 
             <label for="street">Street:</label>
-            <input type="text" id="street" name="street" >
+            <input type="text" id="street" name="street" class="first" >
 
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city" required>
+            <label for="city" class="last" >City:</label>
+            <input type="text" id="city" name="city" class="second" required>
 
             <label for="state_region">State/Region:</label>
-            <input type="text" id="state_region" name="state_region"required >
+            <input type="text" id="state_region" name="state_region"  class="first" >
 
-            <label for="postalcode">Postal Code:</label>
-            <input type="text" id="postalcode" name="postalcode" >
+            <label for="postalcode" class="last">Postal Code:</label>
+            <input type="text" id="postalcode" name="postalcode" class="second" >
 
             <div class="name">
                 <label for="country">Country:</label><br>
