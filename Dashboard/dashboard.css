@@ -1,0 +1,36 @@
+.main-container{
+  display:grid;
+  grid-template-columns: 700px 400px;
+  column-gap: 7px;
+margin-top:70px;
+margin-bottom: 50px;
+margin-left: 170px;
+margin-right: 50px;
+background-color: aqua;
+}
+
+.column-1{
+background-color: bisque;
+display:grid ;
+grid-template-rows: 300px 300px;
+row-gap:10px;
+}
+
+.graph-row-1{
+  background-color: rgb(111, 141, 141);
+}
+
+.graph-row-2{
+  background-color: black;
+  display:grid;
+  grid-template-columns: 346px 346px;
+  column-gap:7px;
+}
+
+.pie{
+  background: pink;
+}
+
+.container{
+background-color: blue;
+}
