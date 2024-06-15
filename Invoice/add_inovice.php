@@ -9,9 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body id="body-pd">
-<?php
-include_once("../Sidebar/sidebar.html");
-?>
+<?php  include_once("../Sidebar/sidebar.html");?>
 <div class="container mt-4">
     <div class="row">
         <!-- Client Info Section -->
@@ -135,6 +133,15 @@ include_once("../Sidebar/sidebar.html");
         const formData = new FormData(clientForm);
         const invoiceData = new FormData(invoiceForm);
 
+        let customer_id = formData.get('customer_id');
+        let company_id = formData.get('company_id');
+        console.log(customer_id);
+        if (customer_id === "" || customer_id === null) {
+            formData.set('customer_id', 0);
+        }
+        if (company_id === "" || company_id === null) {
+            formData.set('company_id', 0);
+        }
         invoiceData.forEach((value, key) => {
             formData.append(key, value);
         });

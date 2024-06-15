@@ -5,9 +5,15 @@ include '../Config/config.php';
         $user_id = $_SESSION['user_id'];
 
         $response =[];
+        $customer_id = $_POST['customer_id'];
+        $business_id = $_POST['company_id'];
 
-        $customer_id = $_POST['customer_id']??null;
-        $business_id = $_POST['company_id']??null;
+        if($_POST['customer_id']===0){
+            $customer_id = null;
+        }
+        if($_POST['company_id']===0){
+            $business_id = null;
+        }
         $product_id = $_POST['ProductID'];
         $invoice_number = $_POST['invoiceNumber'];
         $invoice_date = $_POST['invoiceDate'];
@@ -48,7 +54,7 @@ include '../Config/config.php';
         {
             $response=[
                 'status' => 'Success',
-                'message' => 'Fetch created successfully'
+                'message' => 'Invoice created successfully'
             ];
         } else{
             $response=[
