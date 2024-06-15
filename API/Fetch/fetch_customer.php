@@ -5,6 +5,7 @@ try {
 
     $query = "SELECT customer_id,firstname FROM Customer where user_id= :user_id ORDER BY customer_id DESC";
     $stmt = $conn->prepare($query);
+    $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
     $customer = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($customer);
