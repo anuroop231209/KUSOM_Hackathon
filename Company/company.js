@@ -38,3 +38,47 @@ document.addEventListener("DOMContentLoaded", function(event){
                 isValid = false;
             }
     
+            // Validate Phone Number
+            let phoneNumber = $("#phoneNumber").val().trim();
+            if (phoneNumber === "") {
+                $("#phoneNumber").next(".error-message").text("Phone Number is required.");
+                isValid = false;
+            } else if (!isValidPhoneNumber(phoneNumber)) {
+                $("#phoneNumber").next(".error-message").text("Invalid phone number format.");
+                isValid = false;
+            }
+    
+            // Validate Landline Number (optional, if provided, must be valid)
+            let landlineNumber = $("#landlineNumber").val().trim();
+            if (landlineNumber !== "" && !isValidLandlineNumber(landlineNumber)) {
+                $("#landlineNumber").next(".error-message").text("Invalid landline number format.");
+                isValid = false;
+            }
+    
+            // Validate State/Region (optional)
+            let stateRegion = $("#stateRegion").val().trim();
+    
+            // Validate Country (required by country-select-js, so no need to re-validate)
+            let country = $("#country").val().trim();
+            if (country === "") {
+                $("#country").next(".error-message").text("Country is required.");
+                isValid = false;
+            }
+    
+            // If all inputs are valid, simulate form submission (you can replace this with actual form submission logic)
+            if (isValid) {
+                console.log("Form submitted successfully!");
+                console.log("Company Name:", companyName);
+                console.log("Company Address:", companyAddress);
+                console.log("Primary Contact Person:", contactPerson);
+                console.log("Email:", email);
+                console.log("Phone Number:", phoneNumber);
+                console.log("Landline Number:", landlineNumber);
+                console.log("State/Region:", stateRegion);
+                console.log("Country:", country);
+    
+                // Reset the form or perform any other necessary actions
+                // Example: $("#customerForm")[0].reset();
+            }
+        });
+    
