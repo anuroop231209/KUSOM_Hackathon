@@ -11,9 +11,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: 50vh;
+    margin: 250px;
     background-color: #f4f4f4;
+    
 }
 
 .container {
