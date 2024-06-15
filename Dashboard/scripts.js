@@ -1,29 +1,33 @@
-document.getElementById('add-task').addEventListener('click', function() {
-  const taskInput = document.getElementById('new-task');
-  const taskText = taskInput.value.trim();
-  
-  if (taskText !== '') {
-      addTask(taskText);
-      taskInput.value = '';
+document.addEventListener('DOMContentLoaded', () => {
+  const todoForm = document.getElementById('todo-form');
+  const todoInput = document.getElementById('todo-input');
+  const todoList = document.getElementById('todo-list');
+
+  todoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      addTodo(todoInput.value);
+      todoInput.value = '';
+  });
+
+  function addTodo(task) {
+      const li = document.createElement('li');
+      li.textContent = task;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.classList.add('delete');
+      deleteButton.addEventListener('click', () => {
+          li.remove();
+      });
+
+      li.appendChild(deleteButton);
+      li.addEventListener('click', () => {
+          li.classList.toggle('completed');
+      });
+
+      todoList.appendChild(li);
   }
 });
 
-function addTask(taskText) {
-  const taskList = document.getElementById('task-list');
-  
-  const listItem = document.createElement('li');
-  listItem.textContent = taskText;
-  
-  const deleteButton = document.createElement('button');
-  deleteButton.textContent = 'Delete';
-  deleteButton.addEventListener('click', function() {
-      taskList.removeChild(listItem);
-  });
-  
-  listItem.addEventListener('click', function() {
-      listItem.classList.toggle('completed');
-  });
-  
-  listItem.appendChild(deleteButton);
-  taskList.appendChild(listItem);
-}
+
+
