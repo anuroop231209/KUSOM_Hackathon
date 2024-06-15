@@ -30,6 +30,8 @@
         <input type="text" id="Description" name="Description" placeholder="Description"><br>
         
         <button type="submit">Register</button>
+        <span id="serverError" class="error-message"></span>
+        <span id="serverSuccess" class="success-message"></span>
     </form>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -38,13 +40,17 @@
                 event.preventDefault();
                 const formData = new FormData(this);
                 axios.post('Product-upload.php', formData)
-                    .then(response => {
-                        const data = response.data;
-                        alert(data.message);
-                        if (data.success) {
-                            window.location.href = 'success.html';
+                    .then(fuction(response){
+                        if(response.data.success){
+                            //display the sucess message to the user 
+                            serverSucess.textcontent=response.data.message;
+                        } else{
+                            //display the error message to the user
+                            serverError.textContent=response.data.message;
+
                         }
                     })
+                    
                     .catch(error => {
                         console.error('Error submitting form:', error);
                     });

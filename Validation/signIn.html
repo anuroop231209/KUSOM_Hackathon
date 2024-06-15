@@ -35,7 +35,35 @@
 
     </div>
     <script>
-    
+        document.getElementById('loginform').addEventListener('submit',function(event){
+            event.preventDefault();
+            let serverError= document.getElementById('serverError');
+            let serverSucess= document.getElementById('serverSucess');
+
+            serverError.textContent='';
+            serverSucess.textContent='';
+
+            const form=document.getElementById('login form');
+            
+            // axios post request 
+            axios.post('submit.php',new FormData(form))
+            .then(function(response){
+                if(response.data.Sucess) {
+                    //display the sucess message to the user
+                    serverSucess.textContent=response.data.message;
+            } else {
+                //display error message to the user
+                serverError.textContent=response.data.message;
+            }
+               
+            })
+            .catch(function(error){
+                //log any error 
+                console.error(error);
+                //display error to the message to the user 
+                serverError.textContent= 'There ws an error submitting the form';
+                });
+     });
     </script>
 </body>
 </html>
