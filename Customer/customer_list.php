@@ -12,7 +12,7 @@
 </style>
 
 </head>
-<body id="body-pd">
+<body id="body-pd"  class="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
