@@ -1,3 +1,15 @@
+const dashboard = document.getElementById("dashboard");
+const company = document.getElementById("company");
+const customer = document.getElementById("customer");
+const invoice = document.getElementById("invoice");
+const product = document.getElementById("product");
+const transactions = document.getElementById("transactions");
+
+// company.addEventListener('onclick',()=>{
+  //document.querySelectorAll('.nav__link').forEach(l=> l.classList.remove('active'));
+  //company.classList.add()
+// })
+
 /*===== EXPANDER MENU  =====*/ 
 const showMenu = (toggleId, navbarId, bodyId)=>{
     const toggle = document.getElementById(toggleId),
@@ -25,7 +37,7 @@ showMenu('nav-toggle','navbar','body-pd')
 const linkColor = document.querySelectorAll('.nav__link')
 function colorLink(){
   linkColor.forEach(l=> l.classList.remove('active'))
-  this.classList.add('active')
+ this.classList.add('active')
 }
 linkColor.forEach(l=> l.addEventListener('click', colorLink))
 
