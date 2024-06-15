@@ -51,23 +51,30 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    width: var(--nav-width);
     height: 100vh;
     background-color: var(--bg-color);
     color: var(--white-color);
     padding: 1.5rem 1.5rem 2rem;
     transition: .5s;
-    z-index: var(--z-fixed);
-    width: 16rem;
+    width: 240px;
+    
+
+
   }
   
   /*===== NAV =====*/
   .nav{
     height: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    
+    
+  }
+  #navbar{
+    width: 250px;
+
+
   }
   .nav__brand{
     display: grid;
@@ -79,7 +86,6 @@ body{
 
   .nav__toggle{
     font-size: 1.25rem;
-    padding: .75rem;
     cursor: pointer;
   }
   .nav__logo{

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
     <link rel="stylesheet" href="../Sidebar/styles.css">
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="h-full bg-light" id="body-pd">
 <?php
@@ -54,8 +52,13 @@ include_once("../Sidebar/sidebar.html");
     </table>
 </div>
 
+<<<<<<< HEAD
 <script src="../Sidebar/main.js"></script>  
 <script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+=======
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+>>>>>>> bd8cfbeb9516ab372c03590899c5a1275d5f6da1
 </body>
 </html>
