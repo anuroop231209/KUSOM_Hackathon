@@ -26,6 +26,7 @@ include_once("../Sidebar/sidebar.html");
         </thead>
         <tbody>
         <?php
+        include_once("../Config/config.php");
         include_once("../API/Fetch/fetch_product.php");
         try {
             if (count($product) > 0) {

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
  <link rel="stylesheet" href="../Sidebar/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
  <style>
             body{
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -20,9 +21,6 @@
                 border: 1px solid lightgray;
                 text-align: left;
             }
-   
-.main{
-    margin-left: 300px;
 }
 </style>
 </head>
@@ -30,30 +28,29 @@
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>    
-<h2>CRM Accounts</h2>
-<div class='main'>
+<h2>Company List</h2>
+<div >
     <table class='table table-bordered table-sm'>
         <thead class='thead-light'>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Contact Person</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Landline Number</th>
-            <th>Address</th>
-            <th>URL</th>
-            <th>Actions</th>
+            <th class="p-2">Id</th>
+            <th class="p-2">Name</th>
+            <th class="p-2">Contact Person</th>
+            <th class="p-2">Email</th>
+            <th class="p-2">Phone Number</th>
+            <th class="p-2">Landline Number</th>
+            <th class="p-2">Address</th>
+            <th class="p-2">URL</th>
+            <th class="p-2">Actions</th>
         </tr>
         </thead>
-        <tbody id="databody">
+        <tbody>
         <?php
         include_once("../Config/config.php");
         include_once("../API/Fetch/fetch_company.php");
         try {
-            $result = $company;
-            if (count($result) > 0) {
-                foreach ($result as $data) {
+            if (count($company) > 0) {
+                foreach ($company as $data) {
                     echo '
                     <tr>
                         <td class="p-2">'.htmlspecialchars($data['company_id']).'</td>
@@ -65,8 +62,8 @@ include_once("../Sidebar/sidebar.html");
                          <td class="p-2">'.htmlspecialchars($data['companyAddress'].', '.$data['state'].', '.$data['country'] ).'</td>
                         <td class="p-2">'.htmlspecialchars($data['URL']).'</td>
                         <td class="p-2">
-                            <a href="summary.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-info btn-sm">View</a>
-                            <a href="delete.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="summary_company.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-info btn-sm">View</a>
+                            <a href="delete_company.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>';
                 }

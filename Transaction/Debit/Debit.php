@@ -17,11 +17,10 @@ include_once("../Sidebar/sidebar.html");
          <h2>New Debit</h2>
             <form id="deposit-form" method="post" action="Debit.php">
             <div class="form group">
-            <label for="accountSelect">Account</label>
-            <select id="accountSelect" name="debitAccount">
-                <option value="">Choose an Account</option>
-                <!-- Populate with your account options-->
-             </select>
+                <label for="customerSelect">Client Name</label>
+                <select id="customerSelect" name="customer_id" class="form-control" required>
+                    <option value="">Select a customer</option>
+                </select>
          </div>
         <div class="form group">
             <label for="date">Date</label>
@@ -56,25 +55,25 @@ include_once("../Sidebar/sidebar.html");
  </div>
  <script>
 
-    document.addEventListener("DOMContentLoaded", function() {
-    axios.get('../API/Fetch/fetch_customer.php')
-        .then(response => {
-            const customers = response.data;
-            const customerSelect = document.getElementById('accountSelect');
-            if (customers.length === 0) {
-                window.location.href = '../Contacts/contacts/addCon/add_contact.html';
-            } else {
-                customers.forEach(customer => {
-                    const option = document.createElement('option');
-                    option.value = customer.customer_id;
-                    option.textContent = customer.firstname;
-                    customerSelect.appendChild(option);
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching customer:', error);
-        });
+     document.addEventListener("DOMContentLoaded", function() {
+         axios.get('../../API/Fetch/fetch_customer.php')
+             .then(response => {
+                 const customers = response.data;
+                 const customerSelect = document.getElementById('customerSelect');
+                 if (customers.length === 0) {
+                     alert('No customers found. Add customer .');
+                 } else {
+                     customers.forEach(customer => {
+                         const option = document.createElement('option');
+                         option.value = customer.customer_id;
+                         option.textContent = customer.firstname;
+                         customerSelect.appendChild(option);
+                     });
+                 }
+             })
+             .catch(error => {
+                 console.error('Error fetching customer:', error);
+             });
 
 </script>
  <script src="../Sidebar/main.js"></script>
