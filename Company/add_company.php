@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Company</title>
     <link rel="stylesheet" href="company.css">
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/css/countrySelect.min.css">
     <style>
         /* Add your custom styles here if needed */
     </style>
 </head>
-<body>
+<body id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
+
     <div class="sidebar">
         <h2>Probook</h2>
         <ul>
@@ -89,6 +94,8 @@
             $("#country").countrySelect();
         });
     </script>
+    <script src="../Sidebar/main.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>
 
