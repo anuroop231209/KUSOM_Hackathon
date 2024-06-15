@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
     <div class="container">
         <div class="new-credits">
          <h2>New Credit</h2>
