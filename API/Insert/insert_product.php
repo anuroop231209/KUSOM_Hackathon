@@ -6,9 +6,9 @@ if (!isset($_SESSION['user_id'])) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
-    $productName = $_POST['productName'];
-    $productPrice = $_POST['productPrice'];
-    $productDescription = $_POST['productDescription'];
+    $productName = $_POST['Name'];
+    $productPrice = $_POST['Price'];
+    $productDescription = $_POST['Description'];
 
     $response = [];
 

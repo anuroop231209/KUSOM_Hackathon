@@ -47,8 +47,8 @@ include_once("../Sidebar/sidebar.html");
                         <div class="form-group">
                             <label for="terms">Terms</label>
                             <select name="terms" class="form-control" id="terms">
-                                <option value="1">Thinking</option>
-                                <option value="2">To fulfill</option>
+                                <option value="thinking">Thinking</option>
+                                <option value="to-fulfill">To fulfill</option>
                             </select>
                         </div>
                     </form>

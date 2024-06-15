@@ -14,7 +14,7 @@
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
-    <form id="registrationForm" action="product-upload.php" method="post">
+    <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter your name"><br>
 
@@ -40,7 +40,7 @@ include_once("../Sidebar/sidebar.html");
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
                 event.preventDefault();
                 const formData = new FormData(this);
-                axios.post('product-upload.php', formData)
+                axios.post('../API/Insert/insert_product.php', formData)
                     .then(function(response){
                         if(response.data.success){
                             serverSuccess.textcontent=response.data.message;

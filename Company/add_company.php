@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/css/countrySelect.min.css">
-    <style>
-        /* Add your custom styles here if needed */
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body id="body-pd">
 <?php
@@ -19,7 +17,7 @@ include_once("../Sidebar/sidebar.html");
     <div class="main-content">
         <h1 class="heading">Add Company</h1>
         <div class="container">
-            <form id="customerForm">
+            <form id="companyForm">
                 <div class="name">
                     <label for="companyName" class="companyName">Company Name:</label><br>
                     <input type="text" id="companyName" name="companyName" required>
@@ -36,6 +34,8 @@ include_once("../Sidebar/sidebar.html");
                 </div><br>
 
                 <div>
+                    <span id="success-message" class="success-message"></span>
+                    <span id="error-message" class="error-message"></span>
                     <h2>Contact Information</h2>
 
                     <div class="name">
@@ -51,12 +51,12 @@ include_once("../Sidebar/sidebar.html");
                     </div>
 
                     <div class="name">
-                        <label for="landlineNumber">Landline Number:</label><br>
-                        <input type="text" id="landlineNumber" name="landlineNumber" placeholder="025-XXXXXXX">
+                        <label for="landLineNumber">Landline Number:</label><br>
+                        <input type="text" id="landLineNumber" name="landLineNumber" placeholder="025-XXXXXXX">
                     </div>
                     
                     <div class="name">
-                        <label for="state" class="stateRegion">State/Region:</label><br>
+                        <label for="state" class="state">State/Region:</label><br>
                         <input type="text" id="state" name="state" required>
                     </div>
                     
@@ -73,7 +73,6 @@ include_once("../Sidebar/sidebar.html");
                         <input type="url" id="URL" name="URL">
                     </div>
                 </div><br>
-
                     <button type="submit">Save</button>
                 </div>
             </form>
@@ -83,8 +82,38 @@ include_once("../Sidebar/sidebar.html");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/js/countrySelect.min.js"></script>
     <script src="company.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#country").countrySelect();
+        document.addEventListener("DOMContentLoaded",function() {
+            const  serverSuccess = document.getElementById("success-message");
+            const serverError = document.getElementById("error-message");
+
+            serverSuccess.textContent='';
+            serverError.textContent='';
+
+            $(document).ready(function () {
+                $("#country").countrySelect();
+            });
+            document.getElementById("CompanyForm").addEventListener('submit', function (event) {
+                event.preventDefault();
+                const formData = new FormData(this);
+                axios.post('../API/Insert/insert_company.php', formData)
+                    .then(function (response) {
+                        if(response.data.success) {
+                            serverSuccess.textContent = response.data.message;
+                            serverSuccess.style.display = 'block';
+                            serverError.style.display = 'none';
+                        } else {
+                            serverError.textContent = response.data.message;
+                            serverError.style.display = 'block';
+                            serverSuccess   .style.display = 'none';
+                        }
+                    })
+                    .catch(function (error) {
+                       serverError.textContent = 'There was an error. Please try again.';
+                        serverError.style.display = 'block';
+                        serverSuccess.style.display = 'none';
+                       console.error(error);
+                    })
+            });
         });
     </script>
     <script src="../Sidebar/main.js"></script>

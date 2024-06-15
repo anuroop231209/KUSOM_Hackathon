@@ -11,6 +11,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pass = $_POST['password'];
 
     $response = [];
+    if (empty($firstName) || empty($lastName) || empty($email) || empty($pass)) {
+
+        $response = [
+            'success' => false,
+            'message' => "All fields are required"
+        ];
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $response = [
+            'success' => false,
+            'message' => "Invalid email"
+        ];
+    } elseif (strlen($pass) < 7) {
+        $response = [
+            'success' => false,
+            'message' => "Password must be at least 7 characters"
+        ];
+    } else{
     try {
                 $password = password_hash($pass, PASSWORD_DEFAULT);
 
@@ -39,8 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ];
                 echo "Error: " . $e->getMessage();
             }
-
+        }
     echo json_encode($response);
-}
 
+}
 
