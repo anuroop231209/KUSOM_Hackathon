@@ -7,11 +7,10 @@ if (!isset($_SESSION['user_id'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
-    $customer_id = $_POST['customer_id'];
-    $first_name = $_POST['firstname'];
-    $last_name = $_POST['lastname'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
-    $contact_number = $_POST['phone'];
+    $phone = $_POST['phone'];
     $street = $_POST['street'];
     $city = $_POST['city'];
     $state = $_POST['state'];
@@ -21,14 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response = [];
 
     try {
-        $query = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, phone = :contact_number, street = :street, city = :city, state = :state, postalcode = :postalcode, country = :country WHERE user_id = :user_id AND customer_id=:customer_id ";
+        $query = "INSERT INTO Customer(user_id,firstname,lastname,email,phone,street,city,state,postalcode,country) VALUES (:user_id,:firstname,:lastname,:email,:phone,:street,:city,:state,:postalcode,:country) ";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':user_id', $user_id);
-        $stmt->bindParam(':customer_id', $customer_id);
-        $stmt->bindParam(':first_name', $first_name);
-        $stmt->bindParam(':last_name', $last_name);
+        $stmt->bindParam(':firstname', $firstname);
+        $stmt->bindParam(':lastname', $lastname);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':contact_number', $contact_number);
+        $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':street', $street);
         $stmt->bindParam(':city', $city);
         $stmt->bindParam(':state', $state);

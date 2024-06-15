@@ -1,9 +1,3 @@
-<?php
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../Validation/signIn.html');
-    exit;
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +7,14 @@ if(!isset($_SESSION['user_id'])){
     <title>Product Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="add-product.css">
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <form id="registrationForm" action="product-upload.php" method="post">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
+    <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter your name"><br>
 
@@ -31,21 +29,18 @@ if(!isset($_SESSION['user_id'])){
         <span id="serverSuccess" class="success-message"></span>
     </form>
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-        event.preventDefault();
-         const serverError = document.getElementById('serverError');
-          const serverSuccess= document.getElementById('serverSuccess');
-
-          serverError.textContent ="";
-          serverSuccess.textContent="";
-
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
                 event.preventDefault();
+                let serverError = document.getElementById('serverError');
+                let serverSuccess= document.getElementById('serverSuccess');
+
+                serverError.textContent ='';
+                serverSuccess.textContent='';
                 const formData = new FormData(this);
-                axios.post('product-upload.php', formData)
+                axios.post('../API/Insert/insert_product.php', formData)
                     .then(function(response){
                         if(response.data.success){
-                            serverSuccess.textcontent=response.data.message;
+                            serverSuccess.textContent=response.data.message;
                         } else{
                             serverError.textContent=response.data.message;
 
@@ -56,7 +51,9 @@ if(!isset($_SESSION['user_id'])){
                         serverError.textContent = 'An error occurred. Please try again later.';
                     });
             });
-        });
     </script>
+
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>

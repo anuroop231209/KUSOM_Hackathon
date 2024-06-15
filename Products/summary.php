@@ -1,18 +1,14 @@
 <?php
 include_once("../Config/config.php");
 
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../Validation/signIn.html');
-    exit();
-}
 
 if (isset($_GET['ProductID'])) {
     $id = htmlspecialchars($_GET['product_id']);
 
     try {
-        $query = "SELECT * FROM Products WHERE product_id = :id";
+        $query = "SELECT * FROM Product WHERE product_id = :id";
         $stmt = $conn->prepare($query);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 

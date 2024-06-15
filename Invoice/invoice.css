@@ -133,7 +133,7 @@ select {
     }
     
     .card-header {
-        background-color: #007bff; /* Header background color */
+        background-color:#202557; /* Header background color */
         color: #fff; /* Header text color */
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
@@ -206,7 +206,7 @@ select {
         }
     }
     ;
-}
+
 
 .btn-primary:hover {
     background-color: #0056b3;

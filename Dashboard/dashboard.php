@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <link rel="stylesheet" href="../Sidebar/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<body id="body-pd">
 <?php
-include_once '../Sidebar/sidebar.html';
-include '../Config/config.php';
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../Validation/signIn.html');
-    exit();
-}
+include_once("../Sidebar/sidebar.html");
 ?>
-<body>
+
     <div class="main-container">
     <div class="column-1">
         <div class="graph-row-1"><img class="graph" src="images/graph.jpg"></div>
@@ -40,5 +39,7 @@ if(!isset($_SESSION['user_id'])){
     </div>
 </div>
 <script src="scripts.js"></script>
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>
