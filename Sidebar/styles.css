@@ -58,6 +58,7 @@ body{
     padding: 1.5rem 1.5rem 2rem;
     transition: .5s;
     z-index: var(--z-fixed);
+    width: 16rem;
   }
   
   /*===== NAV =====*/
@@ -153,6 +154,7 @@ body{
     display: flex;
     align-items: center;
     gap: 0.4rem;
+
   }
   .collapse__menu{
     display: none;

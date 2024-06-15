@@ -14,6 +14,7 @@
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
+<div class="reg">
     <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
         <label for="product-registiration"><h2> Product Registration</h2></label>
         <label for="Name">Name</label>
@@ -28,6 +29,7 @@ include_once("../Sidebar/sidebar.html");
         <button type="submit">Register</button>
         <span id="serverError" class="error-message"></span>
         <span id="serverSuccess" class="success-message"></span>
+    </div>
     </form>
     <script>
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
