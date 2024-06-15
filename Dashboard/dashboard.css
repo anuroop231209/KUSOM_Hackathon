@@ -17,7 +17,8 @@ row-gap:10px;
 }
 
 .graph-row-1{
-
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px 8px 8px 8px;
 }
 
 .graph-row-1:hover{
@@ -54,7 +55,7 @@ margin-bottom:8px;
   }
   
   
-  .container {
+  .container{
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -111,4 +112,27 @@ margin-bottom:8px;
     justify-content: space-between;
     align-items: center;
   }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  li.completed {
+    text-decoration: line-through;
+    color: #aaa;
+  }
+  
+  button.delete {
+    background-color:#202557;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button.delete:hover {
+    opacity:0.5;
+  }
+  
   

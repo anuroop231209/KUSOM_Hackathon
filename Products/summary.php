@@ -1,10 +1,6 @@
 <?php
 include_once("../Config/config.php");
 
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../Validation/signIn.html');
-    exit();
-}
 
 if (isset($_GET['ProductID'])) {
     $id = htmlspecialchars($_GET['product_id']);

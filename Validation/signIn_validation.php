@@ -5,10 +5,10 @@ include("../Config/config.php");
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $response = [];
 
-    $email = $_POST["inputEmail"];
-    $password = $_POST["inputPassword"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
     try{
-        $query = "SELECT user_id,firstName,lastName,password from users WHERE email = :email";
+        $query = "SELECT user_id,firstName,lastName,password from users WHERE useremail = :email";
         $stmt = $conn->prepare($query);
         $stmt->bindValue(":email",$email);
         $stmt->execute();

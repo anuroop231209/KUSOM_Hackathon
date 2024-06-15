@@ -1,9 +1,3 @@
-<?php
-if(!isset($_SESSION['user_id'])){
-    header('Location: ../Validation/signIn.html');
-    exit;
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +7,13 @@ if(!isset($_SESSION['user_id'])){
     <title>Product Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="add-product.css">
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
     <form id="registrationForm" action="product-upload.php" method="post">
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter your name"><br>
@@ -58,5 +56,8 @@ if(!isset($_SESSION['user_id'])){
             });
         });
     </script>
+
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>

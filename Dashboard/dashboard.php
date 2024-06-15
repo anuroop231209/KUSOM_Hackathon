@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
   <link rel="stylesheet" href="dashboard.css">
+
+
+    <link rel="stylesheet" href="../Sidebar/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
+
     <div class="main-container">
     <div class="column-1">
         <div class="graph-row-1"><img class="graph" src="images/graph.jpg"></div>
@@ -17,7 +25,11 @@
         </div>
     </div>
 
-    <div class="class=container">
+    <div class="class=container" style=" background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    ">
         <h1>To do list</h1>
         <form id="todo-form">
 <input type="text" id="todo-input" placeholder="Add new task " required>
@@ -27,5 +39,7 @@
     </div>
 </div>
 <script src="scripts.js"></script>
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>

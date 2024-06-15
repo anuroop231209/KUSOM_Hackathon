@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Debit</title>
     <link rel="stylesheet" href="deposit.css">
+<<<<<<< HEAD:Transaction/Deposit/add_deposit.html
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+=======
+    <link rel="stylesheet" href="../Sidebar/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+>>>>>>> 6358566be30c8538758971ef037aeb229616ef7e:Transaction/Deposit/add_deposit.php
 </head>
-<body>
+<body id="body-php">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
     <div class="container">
         <div class="new-deposits">x
          <h2>New Deposit</h2>
@@ -50,6 +58,7 @@
         </table>
      </div>
  </div>
+<<<<<<< HEAD:Transaction/Deposit/add_deposit.html
  <script>
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -74,5 +83,10 @@
 
 </script>
 
+=======
+ 
+ <script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+>>>>>>> 6358566be30c8538758971ef037aeb229616ef7e:Transaction/Deposit/add_deposit.php
 </body>
 </html>

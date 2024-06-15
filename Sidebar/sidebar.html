@@ -1,7 +1,7 @@
 
-
 <link rel="stylesheet" href="styles.css">
-        
+
+
 <div class="l-navbar" id="navbar">
     <nav class="nav">
         <div>
@@ -10,7 +10,7 @@
                 <a href="#" class="nav__logo">PROBOOK</a>
             </div>
             <div class="nav__list">
-                <a href="#" class="nav__link active">
+                <a href="../Dashboard/dashboard.php" class="nav__link active">
                     <ion-icon name="home-outline" class="nav__icon"></ion-icon>
                     <span class="nav__name">Dashboard</span>
                 </a>
@@ -22,8 +22,8 @@
                     <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                     <ul class="collapse__menu">
-                        <a href="#" class="collapse__sublink">Add</a><br>
-                        <a href="#" class="collapse__sublink">List</a>
+                        <a href="../Customer/add-customer.php" class="collapse__sublink">Add Company</a><br>
+                        <a href="#" class="collapse__sublink">List Company</a>
                     </ul>
                 </div>
                 <div  class="nav__link collapse">
@@ -33,9 +33,21 @@
                     <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                     <ul class="collapse__menu">
-                        <a href="#" class="collapse__sublink">Add </a>
+                        <a href="../Customer/add-customer.php" class="collapse__sublink">Add Customer</a>
                         <br>
-                        <a href="#" class="collapse__sublink">List</a>
+                        <a href="#" class="collapse__sublink">List Customer</a>
+                    </ul>
+                </div>
+                <div  class="nav__link collapse">
+                    <ion-icon name="folder-outline" class="nav__icon"></ion-icon>
+                    <span class="nav__name">Product</span>
+
+                    <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                    <ul class="collapse__menu">
+                        <a href="../Products/add_product.php" class="collapse__sublink">Add </a>
+                        <br>
+                        <a href="../Products/product-list.php" class="collapse__sublink">List</a>
                     </ul>
                 </div>
 
@@ -46,8 +58,8 @@
                     <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                     <ul class="collapse__menu">
-                        <a href="#" class="collapse__sublink">Expense</a>
-                        <a href="#" class="collapse__sublink">Deposit</a>
+                        <a href="#" class="collapse__sublink">Add Expense</a>
+                        <a href="#" class="collapse__sublink">Add Deposit</a>
                      <a href="#" class="collapse__sublink">Balance Sheet</a>
 
 
@@ -61,7 +73,7 @@
                     <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
 
                     <ul class="collapse__menu">
-                        <a href="#" class="collapse__sublink">Add Invoice</a>
+                        <a href="../Invoice/add_inovice.php" class="collapse__sublink">Add Invoice</a>
                         <a href="#" class="collapse__sublink">List Invoice</a>
           
 
@@ -95,7 +107,5 @@
     </nav>
 </div>
 
-
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 <script src="main.js"></script>
-
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
