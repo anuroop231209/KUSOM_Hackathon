@@ -44,7 +44,34 @@
             </select>
 
             <button type="submit">Register</button>
+            <span id="serverError" class="error-message"></span>
+          <span id="serverSuccess" class="success-message"></span>
         </form>
     </div>
+    <script>
+         document.getElementById('registrationForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                let serverError = document.getElementById('serverError');
+                let serverSuccess= document.getElementById('serverSuccess');
+
+                serverError.textContent ='';
+                serverSuccess.textContent='';
+                const formData = new FormData(this);
+                axios.post('../API/Insert/insert_customer.php', formData)
+                    .then(function(response){
+                        if(response.data.success){
+                            serverSuccess.textContent=response.data.message;
+                        } else{
+                            serverError.textContent=response.data.message;
+
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error submitting form:', error);
+                        serverError.textContent = 'An error occurred. Please try again later.';
+                    });
+            });
+    </script>
 </body>
 </html>
