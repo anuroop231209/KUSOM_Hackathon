@@ -67,5 +67,30 @@
                         <input type="text" id="country" name="country" required>
                         <span id="countryError" class="error-message"></span>
                     </div><br>
-                    
+                    <div class="name">
+                        <div class="url">
+                            <br>
+                            <br>
+                        <label for="URL">URL</label><br>
+                        <input type="url" id="URL" name="URL">
+                    </div>
+                </div><br>
+
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/js/countrySelect.min.js"></script>
+    <script src="company.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#country").countrySelect();
+        });
+    </script>
+</body>
+</html>
+
+
                 
