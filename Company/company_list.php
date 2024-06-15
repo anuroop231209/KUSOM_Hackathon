@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
  <link rel="stylesheet" href="../Sidebar/styles.css">
+    
  <style>
             body{
                 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -20,10 +21,10 @@
                 border: 1px solid lightgray;
                 text-align: left;
             }
-}
+
 </style>
 </head>
-<body id="body-pd" >
+<body id="body-pd" class="body-pd" >
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>    
@@ -76,7 +77,6 @@ include_once("../Sidebar/sidebar.html");
         </tbody>
     </table>
 </div>
-
 
 <script src="../Sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>

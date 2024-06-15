@@ -9,16 +9,21 @@
     <link rel="stylesheet" href="add-product.css">
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-
+<body id="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
+<<<<<<< HEAD
+
+<form id="registrationForm" action="../API/Insert/insert_product.php" method="post" class="form">
+        <label for="register"> <h2>Product Register</h2> </label>
+        <br>
+=======
 <div class="reg">
     <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
         <label for="product-registiration"><h2> Product Registration</h2></label>
+>>>>>>> e6ff5e14e1435afc64a5b46c869cf9003b66f933
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter product name"><br>
 
@@ -31,8 +36,11 @@ include_once("../Sidebar/sidebar.html");
         <button type="submit">Register</button>
         <span id="serverError" class="error-message"></span>
         <span id="serverSuccess" class="success-message"></span>
+    </div>
     </form>
-</div>
+   
+   
+    
 
     <script>
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
@@ -61,5 +69,6 @@ include_once("../Sidebar/sidebar.html");
 
 <script src="../Sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
 </body>
 </html>
