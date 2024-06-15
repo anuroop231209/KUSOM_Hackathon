@@ -16,13 +16,6 @@
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
-
-    <div class="sidebar">
-        <h2>Probook</h2>
-        <ul>
-          
-        </ul>
-    </div>
     <div class="main-content">
         <h1 class="heading">Add Company</h1>
         <div class="container">
@@ -39,7 +32,7 @@ include_once("../Sidebar/sidebar.html");
 
                 <div class="name">
                     <label for="contactName" class="name">Primary Contact Person:</label><br>
-                    <input type="text" id="contactName" name="contactName" placeholder="Enter nme of contact person">
+                    <input type="text" id="contactName" name="contactName" placeholder="Enter name of contact person">
                 </div><br>
 
                 <div>

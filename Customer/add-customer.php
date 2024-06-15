@@ -10,6 +10,7 @@
     <script src="script.js"></script>
 </head>
 <body>
+    
     <div class="container">
         <form id="registrationForm" action="../Contacts-upload.php" method="post">
             <h2>Add Customer</h2>
