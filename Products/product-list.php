@@ -23,12 +23,10 @@
         </thead>
         <tbody>
         <?php
-        include_once("../Config/config.php");
         include_once("../API/Fetch/fetch_product.php");
         try {
-            $result = $product;
-            if (count($result) > 0) {
-                foreach ($result as $data) {
+            if (count($product) > 0) {
+                foreach ($product as $data) {
                     echo '
                     <tr>
                         <td class="p-2">'.htmlspecialchars($data['product_id']).'</td>

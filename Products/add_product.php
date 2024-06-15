@@ -29,21 +29,18 @@ include_once("../Sidebar/sidebar.html");
         <span id="serverSuccess" class="success-message"></span>
     </form>
     <script>
-        document.addEventListener("DOMContentLoaded", function(event) {
-        event.preventDefault();
-         const serverError = document.getElementById('serverError');
-          const serverSuccess= document.getElementById('serverSuccess');
-
-          serverError.textContent ="";
-          serverSuccess.textContent="";
-
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
                 event.preventDefault();
+                let serverError = document.getElementById('serverError');
+                let serverSuccess= document.getElementById('serverSuccess');
+
+                serverError.textContent ='';
+                serverSuccess.textContent='';
                 const formData = new FormData(this);
                 axios.post('../API/Insert/insert_product.php', formData)
                     .then(function(response){
                         if(response.data.success){
-                            serverSuccess.textcontent=response.data.message;
+                            serverSuccess.textContent=response.data.message;
                         } else{
                             serverError.textContent=response.data.message;
 
@@ -54,7 +51,6 @@ include_once("../Sidebar/sidebar.html");
                         serverError.textContent = 'An error occurred. Please try again later.';
                     });
             });
-        });
     </script>
 
 <script src="../Sidebar/main.js"></script>

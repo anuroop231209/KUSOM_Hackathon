@@ -13,7 +13,7 @@
     <div class="container">
         
         <div class="companyName">PROBOOK<img class="logo" src="star_sparkle_stars_sparkles_icon_new.png" alt="Logo"></div>
-        <form id="loginForm" action="submit.php" method="post">
+        <form id="loginForm" action="signIn_validation.php" method="post">
             <h3>SIGN IN</h3>
 
             <label for="email">Email:</label>
@@ -43,11 +43,16 @@
             const form = document.getElementById('loginForm');
 
             // Axios POST request
-            axios.post('submit.php', new FormData(form))
+            axios.post('signIn_validation.php', new FormData(form))
                 .then(function(response) {
                     if (response.data.success) {
                         // Display success message to the user
                         serverSuccess.textContent = response.data.message;
+
+                        setTimeout(()=>{
+                            window.location.href="../Dashboard/dashboard.php";
+                        },3000);
+
                     } else {
                         // Display error message to the user
                         serverError.textContent = response.data.message;

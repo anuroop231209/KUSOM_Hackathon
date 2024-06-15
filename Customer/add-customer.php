@@ -12,7 +12,7 @@
 <body>
     
     <div class="container">
-        <form id="registrationForm" action="../Contacts-upload.php" method="post">
+        <form id="registrationForm" action="../API/Insert/insert_customer.php" method="post">
             <h2>Add Customer</h2>
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required>
@@ -32,8 +32,8 @@
             <label for="city">City:</label>
             <input type="text" id="city" name="city" required>
 
-            <label for="state_region">State/Region:</label>
-            <input type="text" id="state_region" name="state_region"required >
+            <label for="state">State/Region:</label>
+            <input type="text" id="state" name="state" required >
 
             <label for="postalcode">Postal Code:</label>
             <input type="text" id="postalcode" name="postalcode" >
