@@ -12,7 +12,6 @@ try {
     $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
     $company = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($company);
 } catch (PDOException $e) {
     echo json_encode([]);
 }

@@ -19,3 +19,4 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 session_start();
+$_SESSION['user_id'] = 2;

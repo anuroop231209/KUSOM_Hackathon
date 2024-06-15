@@ -63,7 +63,7 @@ include_once("../Sidebar/sidebar.html");
                         <td class="p-2">'.htmlspecialchars($data['URL']).'</td>
                         <td class="p-2">
                             <a href="summary.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-info btn-sm">View</a>
-                            <a href="delete.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="delete_company.php?company_id='.htmlspecialchars($data['company_id']).'" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>';
                 }
