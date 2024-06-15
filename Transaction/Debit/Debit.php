@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get data from POST request
-    $account = $_POST['from'];
+    $account = $_POST['debitAccount'];
     $date = $_POST['date'];
     $description = $_POST['description'];
     $amount = $_POST['amount'];

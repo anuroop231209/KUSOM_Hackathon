@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get data from POST request
-    $account = $_POST['from'];
+    $account = $_POST['creditAccount'];
     $date = $_POST['date'];
     $description = $_POST['description'];
     $amount = $_POST['amount'];
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
 
         // Prepare and execute the SQL insert statement
-        $query ="INSERT INTO Debit (debitAccount, debitDate, debitDescription, debitAmount) VALUES (:account, :date, :description, :amount)";
+        $query ="INSERT INTO Credit (creditName, creditDate, creditDescription, creditAmount) VALUES (:account, :date, :description, :amount)";
         $stmt=$conn->prepare($query);
         $stmt->bindParam(':account', $account);
         $stmt->bindParam(':date', $date);
@@ -34,12 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($stmt->execute()){
             $response=[
                 'success' => true,
-                'message' => 'Deposit added successfully'
+                'message' => 'Credit added successfully'
             ];
         }else{
             $response=[
                 'success' => false,
-                'message' => 'Failed to add deposit'
+                'message' => 'Failed to add credit'
             ];
         }
 

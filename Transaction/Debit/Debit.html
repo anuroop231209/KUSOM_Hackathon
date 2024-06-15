@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Debit</title>
-    <link rel="stylesheet" href="deposit.css">
-<<<<<<< HEAD:Transaction/Deposit/add_deposit.html
+    <link rel="stylesheet" href="Debit.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-=======
     <link rel="stylesheet" href="../Sidebar/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
->>>>>>> 6358566be30c8538758971ef037aeb229616ef7e:Transaction/Deposit/add_deposit.php
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body id="body-php">
-<?php
-include_once("../Sidebar/sidebar.html");
-?>
+<body>
     <div class="container">
-        <div class="new-deposits">x
-         <h2>New Deposit</h2>
-            <form id="deposit-form" method="post" action="uploadnewdeposit.php">
+        <div class="new-deposits">
+         <h2>New Debit</h2>
+            <form id="deposit-form" method="post" action="Debit.php">
             <div class="form group">
             <label for="accountSelect">Account</label>
             <select id="accountSelect" name="debitAccount">
@@ -44,7 +38,7 @@ include_once("../Sidebar/sidebar.html");
     </form>
     </div>
     <div class="recent-deposits">
-        <h2>Recent deposits</h2>
+        <h2>Recent Debits</h2>
         <table>
             <thead>
                 <tr>
@@ -58,7 +52,6 @@ include_once("../Sidebar/sidebar.html");
         </table>
      </div>
  </div>
-<<<<<<< HEAD:Transaction/Deposit/add_deposit.html
  <script>
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -82,11 +75,7 @@ include_once("../Sidebar/sidebar.html");
         });
 
 </script>
-
-=======
- 
  <script src="../Sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
->>>>>>> 6358566be30c8538758971ef037aeb229616ef7e:Transaction/Deposit/add_deposit.php
 </body>
 </html>
