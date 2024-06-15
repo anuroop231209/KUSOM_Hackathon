@@ -14,16 +14,11 @@
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
-<<<<<<< HEAD
 
-<form id="registrationForm" action="../API/Insert/insert_product.php" method="post" class="form">
-        <label for="register"> <h2>Product Register</h2> </label>
-        <br>
-=======
 <div class="reg">
     <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
         <label for="product-registiration"><h2> Product Registration</h2></label>
->>>>>>> e6ff5e14e1435afc64a5b46c869cf9003b66f933
+
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter product name"><br>
 

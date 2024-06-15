@@ -12,7 +12,7 @@
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
-<h2>CRM Accounts</h2>
+ <h2>CRM Accounts</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
         <thead class='thead-light'>
@@ -54,8 +54,8 @@ include_once("../Sidebar/sidebar.html");
     </table>
 </div>
 
-<script src="../Sidebar/main.js"></script>
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="../Sidebar/main.js"></script>  
+<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
