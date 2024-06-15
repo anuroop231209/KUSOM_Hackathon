@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="tax_sys.css">
     <link rel="stylesheet" href="../Sidebar/styles.css">
 </head>
-<body>
+<body class="body-pd" id="body-pd">
     <?php include_once("../Sidebar/sidebar.html") 
     ?>
     <div class="container">
