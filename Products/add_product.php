@@ -10,13 +10,16 @@
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body id="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
-    <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
+
+<form id="registrationForm" action="../API/Insert/insert_product.php" method="post" class="form">
+        <label for="register"> <h2>Product Register</h2> </label>
+        <br>
         <label for="Name">Name</label>
-        <input type="text" id="Name" name="Name" required placeholder="Enter your name"><br>
+        <input type="text" id="Name" name="Name" required placeholder="Enter product name"><br>
 
         <label for="Price">Price</label>
         <input type="number" id="Price" name="Price" placeholder="Enter amount" required><br>
@@ -28,6 +31,10 @@ include_once("../Sidebar/sidebar.html");
         <span id="serverError" class="error-message"></span>
         <span id="serverSuccess" class="success-message"></span>
     </form>
+   
+   
+    
+
     <script>
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -55,5 +62,6 @@ include_once("../Sidebar/sidebar.html");
 
 <script src="../Sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
 </body>
 </html>
