@@ -6,7 +6,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
-    $company_id = $_POST['company_id'];
     $companyName = $_POST['companyName'];
     $companyAddress = $_POST['companyAddress'];
     $contactName = $_POST['contactName'];
@@ -20,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response = [];
 
     try {
-        $query = "INSERT INTO Company(user_id,companyName,companyAddress,contactName,companyEmail,phoneNumber,landLineNumber,state,country,URL) VALUES (:user_id,:companyName,:companyAddress,:contactName,:companyEmail,:phoneNumber,:lineLineNumber,:state,:country,:URL) ";
+        $query = "INSERT INTO Company(user_id,companyName,companyAddress,contactName,companyEmail,phoneNumber,landLineNumber,state,country,URL) VALUES (:user_id,:companyName,:companyAddress,:contactName,:companyEmail,:phoneNumber,:landLineNumber,:state,:country,:URL) ";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':companyName', $companyName);
@@ -40,15 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $response = [
                 "success" => false,
-                "message" => "Failed to Update Company Info"
+                "message" => "Failed to Update Company Info during execution"
             ];
         }
     } catch (PDOException $e) {
         $response = [
             "success" => false,
-            "message" => "Failed to Update Company Info"
+            "message" => "Failed to Update Company Info" .$e->getMessage()
         ];
-        echo "Error: " . $e->getMessage();
     }
     echo json_encode($response);
 }
