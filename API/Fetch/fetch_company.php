@@ -1,5 +1,5 @@
 <?php
-include_once '../../Config/config.php';
+include_once("../../Config/config.php");
 if(!isset($_SESSION['user_id'])){
     header('Location: ../Validation/signIn.html');
     exit();
