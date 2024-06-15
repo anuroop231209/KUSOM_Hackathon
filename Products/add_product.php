@@ -10,13 +10,20 @@
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body id="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
+
+<div class="reg">
     <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
+        <label for="product-registiration"><h2> Product Registration</h2></label>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 05b738f4bf8379bb463048950a5b8f6a09ada05e
         <label for="Name">Name</label>
-        <input type="text" id="Name" name="Name" required placeholder="Enter your name"><br>
+        <input type="text" id="Name" name="Name" required placeholder="Enter product name"><br>
 
         <label for="Price">Price</label>
         <input type="number" id="Price" name="Price" placeholder="Enter amount" required><br>
@@ -27,7 +34,12 @@ include_once("../Sidebar/sidebar.html");
         <button type="submit">Register</button>
         <span id="serverError" class="error-message"></span>
         <span id="serverSuccess" class="success-message"></span>
+    </div>
     </form>
+   
+   
+    
+
     <script>
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -55,5 +67,6 @@ include_once("../Sidebar/sidebar.html");
 
 <script src="../Sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
 </body>
 </html>

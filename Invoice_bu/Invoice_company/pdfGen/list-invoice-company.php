@@ -24,11 +24,13 @@
         </thead>
         <tbody>
         <?php
-        include_once("../../Config/config.php");
+        include_once("../../../Config/config.php");
 
         try {
-            $query = "SELECT * FROM Invoice ORDER BY invoice_id DESC";
+            $user_id = $_SESSION['user_id'];
+            $query = "SELECT * FROM Invoice_company WHERE user_id=:user_id ORDER BY invoice_id DESC";
             $stmt = $conn->prepare($query);
+            $stmt->bindParam(':user_id', $user_id);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -44,7 +46,7 @@
                         <td class="p-2">'.htmlspecialchars($data['rate']).'</td>
                         <td class="p-2">'.htmlspecialchars($data['total_amount']).'</td>
                         <td class="p-2">
-                            <a href="generate_invoice.php?invoice_id='.htmlspecialchars($data['invoice_id']).'" class="btn btn-info btn-sm">Generate Fetch</a>
+                            <a href="generate_invoice.php?invoice_id='.htmlspecialchars($data['invoice_id']).'" class="btn btn-info btn-sm">Generate Invoice</a>
                             <a href="delete.php?invoice_id='.htmlspecialchars($data['invoice_id']).'" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>';

@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $email = $_POST["email"];
     $password = $_POST["password"];
     try{
-        $query = "SELECT user_id,firstName,lastName,password from users WHERE useremail = :email";
+        $query = "SELECT user_id,password from users WHERE useremail = :email";
         $stmt = $conn->prepare($query);
         $stmt->bindValue(":email",$email);
         $stmt->execute();
@@ -16,8 +16,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         if($result) {
             if(password_verify($password,$result['password'])){
                 $_SESSION['user_id'] = $result['user_id'];
-                $_SESSION['firstName'] = $result['firstName'];
-                $_SESSION['lastName'] = $result['lastName'];
                 $response = [
                     'success' => true,
                     'message' => "Logged in successfully. Redirecting to Dashboard in 3 Seconds."

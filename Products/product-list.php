@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Sidebar/styles.css">
 </head>
-<body class="h-full bg-light">
-
-<h2>CRM Accounts</h2>
+<body class="h-full bg-light" id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
+ <h2>CRM Accounts</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
         <thead class='thead-light'>
@@ -23,6 +24,7 @@
         </thead>
         <tbody>
         <?php
+        include_once("../Config/config.php");
         include_once("../API/Fetch/fetch_product.php");
         try {
             if (count($product) > 0) {
@@ -50,7 +52,13 @@
     </table>
 </div>
 
-<!-- Bootstrap JavaScript (optional) -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+<script src="../Sidebar/main.js"></script>  
+<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+=======
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+>>>>>>> bd8cfbeb9516ab372c03590899c5a1275d5f6da1
 </body>
 </html>

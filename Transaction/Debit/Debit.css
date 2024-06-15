@@ -11,7 +11,7 @@ body {
     padding: 20px;
 }
 
-.new-credit, .recent-deposits {
+.new-deposits, .recent-deposits {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -44,7 +44,7 @@ input, select {
 
 button {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #202557;
     color: white;
     padding: 10px;
     border: none;
@@ -53,7 +53,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #191e5a;
 }
 
 table {
