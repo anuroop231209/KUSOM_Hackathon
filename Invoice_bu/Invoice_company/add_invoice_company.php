@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Form</title>
-    <link rel="stylesheet" href="../Sidebar/styles.css">
+    <link rel="stylesheet" href="../../Sidebar/styles.css">
     <link rel="stylesheet" href="invoice.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body id="body-pd">
-<?php  include_once("../Sidebar/sidebar.html");?>
+<?php include("../../Sidebar/sidebar.html"); ?>
 <div class="container mt-4">
     <div class="row">
         <!-- Client Info Section -->
@@ -20,20 +20,6 @@
                 </div>
                 <div class="card-body">
                     <form id="clientForm">
-                        <div class="form-group">
-                            <label for="customerType">Customer Type</label>
-                            <select name="customerType" class="form-control" id="customerType" required>
-                                <option value="">Select a customer type</option>
-                                <option value="customer">Customer</option>
-                                <option value="company">Company</option>
-                            </select>
-                        </div>
-                        <div id="customerSelector" class="form-group" >
-                            <label for="customerSelect">Customer Name</label>
-                            <select id="customerSelect" name="customer_id" class="form-control" required>
-                                <option value="">Select a customer</option>
-                            </select>
-                        </div>
                         <div id="companySelector" class="form-group">
                             <label for="companySelect">Company Name</label>
                             <select id="companySelect" name="company_id" class="form-control" required>
@@ -133,20 +119,10 @@
         const formData = new FormData(clientForm);
         const invoiceData = new FormData(invoiceForm);
 
-        let customer_id = formData.get('customer_id');
-        let company_id = formData.get('company_id');
-        console.log(customer_id);
-        if (customer_id === "" || customer_id === null) {
-            formData.set('customer_id', 0);
-        }
-        if (company_id === "" || company_id === null) {
-            formData.set('company_id', 0);
-        }
         invoiceData.forEach((value, key) => {
             formData.append(key, value);
         });
         console.log(formData);
-
         axios.post('invoice_back.php', formData)
             .then(response => {
               if(response.data.success) {
@@ -169,7 +145,7 @@
             });
     }
 </script>
-<script src="../Sidebar/main.js"></script>
+<script src="../../Sidebar/main.js"></script>
 <x></x>
 </body>
 </html>

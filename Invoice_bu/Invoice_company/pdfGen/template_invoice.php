@@ -57,8 +57,8 @@
             </thead>
             <tbody>
             <tr>
-                <td><?= $product['Name'] ?></td>
-                <td><?= $product['Description'] ?></td>
+                <td><?= $product['productName'] ?></td>
+                <td><?= $product['productDescription'] ?></td>
                 <td><?= number_format($invoice['rate'], 2) ?></td>
                 <td><?= number_format($invoice['quantity'], 2) ?></td>
                 <td><?= number_format($invoice['subtotal'], 2) ?></td>
