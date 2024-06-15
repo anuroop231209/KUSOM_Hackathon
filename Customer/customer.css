@@ -39,6 +39,17 @@ form h2 {
     text-align: center;
     font-size: 18px; /* Reduced font size */
 }
+.first{
+    width: 300px;
+}
+.second{
+    width: 350px;
+    margin-left: 400px;
+}
+.last{
+    margin-top: -75px;
+    margin-left: 400px;
+}
 
 /* Label and Input Styling */
 label {
@@ -69,23 +80,14 @@ button {
     color: white;
     font-size: 16px; /* Reduced font size */
     border-radius: 6px;
+    width: 200px;
+    justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #262779;
-}
-.first{
-    width: 350px;
-}
-.second{
-    width: 350px;
-    margin-left: 400px;
-}
-.last{
-    margin-top: -75px;
-    margin-left: 400px;
 }
 
 
