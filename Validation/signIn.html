@@ -6,11 +6,12 @@
     <title>Login Page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="signin.css">
     
 </head>
 <body>
     <div>
-        <img class="logo" src="Validation/star_sparkle_stars_sparkles_icon_new.png"  alt="logo">
+        <img class="logo" src="star_sparkle_stars_sparkles_icon_new.png"  alt="logo">
 
     </div>
     <div class="CompanyNmae">ProBook</div>
@@ -51,6 +52,10 @@
                 if(response.data.Sucess) {
                     //display the sucess message to the user
                     serverSucess.textContent=response.data.message;
+                    setTimeout(()=>{
+                        window.location.href='';
+            
+                    },3000);
             } else {
                 //display error message to the user
                 serverError.textContent=response.data.message;

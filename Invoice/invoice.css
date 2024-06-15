@@ -96,10 +96,11 @@ select {
     color: #fff;
         
     background-color: #181e72 /* Import Karla font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+}
+
     
     /* Global styles */
-    body {
+    .body {
         font-family: 'Karla', sans-serif; /* Apply Karla font to entire document */
         line-height: 1.6; /* Improved readability */
         color: #202557; /* Text color */
