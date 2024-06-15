@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
     <style>
         body {
@@ -82,7 +83,10 @@
     </style>
 </head>
 
-<body>
+<body id="body-pd">
+<?php
+include_once("../Sidebar/sidebar.html");
+?>
 <div>
     <img class="logo" src="star_sparkle_stars_sparkles_icon_new.png" alt="">
 </div>
@@ -174,5 +178,7 @@
         return re.test(email);
     }
 </script>
+<script src="../Sidebar/main.js"></script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 </body>
 </html>
