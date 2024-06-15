@@ -20,46 +20,7 @@
                 border: 1px solid lightgray;
                 text-align: left;
             }
-            
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #202557;
-    padding-top: 20px;
-    color: white;
-}
-
-.sidebar h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 8px;
-    text-align: center;
-}
-
-.sidebar ul li a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 10px 0;
-}
-
-.sidebar ul li a.active,
-.sidebar ul li a:hover {
-    background-color: #1c2689 ;
-    color: white;
-}
-
+   
 .main{
     margin-left: 300px;
 }
