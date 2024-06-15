@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
     <link rel="stylesheet" href="../Sidebar/styles.css">
+<style>
+    .contain{
+        margin-left: 60px;
+    }
+</style>
+
 </head>
 <body id="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
+<div class="contain">
+
 <h2>CRM Accounts</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
@@ -54,6 +62,8 @@ include_once("../Sidebar/sidebar.html");
         </tbody>
     </table>
 </div>
+</div>
+
 
 <script src="../Sidebar/main.js"></script>
 <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>

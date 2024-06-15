@@ -90,6 +90,10 @@ button:hover {
     background-color: #262779;
 }
 
+.contain{
+    margin-left:30px;
+}
+
 
 /* Animation */
 @keyframes zoomIn {
