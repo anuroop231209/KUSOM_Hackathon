@@ -56,27 +56,25 @@ include_once("../../Sidebar/sidebar.html");
         <table>
             <thead>
                 <tr>
-                    <th>Description</th>
+                    <th>Date</th>
                     <th>Amount</th>
                 </tr>
             </thead>
             <tbody id="recent-credits-body">
             <?php
-            include_once(ROOT_DIR."/Config/config.php");
-            include_once(ROOT_DIR."/API/Fetch/fetch_product.php");
+
+            $totalCredit=0;
+            include_once("../../Config/config.php");
+            include_once("../../API/Fetch/fetch_credit.php");
             try {
-                if (count($product) > 0) {
-                    foreach ($product as $data) {
+                if (count($credit) > 0) {
+                    foreach ($credit as $data) {
+                        $totalCredit=$totalCredit+$data['credit_Amount'];
                         echo '
                     <tr>
-                        <td class="p-2">'.htmlspecialchars($data['product_id']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['productName']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['productPrice']).'</td>
-                        <td class="p-2">'.htmlspecialchars($data['productDescription']).'</td>
-                        <td class="p-2">
-                            <a href="summary.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-info btn-sm">View</a>
-                            <a href="delete.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
+                    <td class="p-2">'.htmlspecialchars($data['credit_Date']).'</td>
+                    <td class="p-2">'.htmlspecialchars($data['credit_Amount']).'</td>
+                        
                     </tr>';
                     }
                 } else {
@@ -88,6 +86,7 @@ include_once("../../Sidebar/sidebar.html");
             ?>
             </tbody>
         </table>
+        <div id="totalDebit">Total Debit: <?php echo $totalCredit; ?></div>
      </div>
  </div>
 <script>

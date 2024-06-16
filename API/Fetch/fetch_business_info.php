@@ -11,7 +11,9 @@ try {
     $stmt = $conn->prepare($query);
     $stmt->execute();
     $business = $stmt->fetch(PDO::FETCH_ASSOC);
-    echo json_encode($business);
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        echo json_encode($business);
+    }
 } catch (PDOException $e) {
     echo json_encode([]);
 }

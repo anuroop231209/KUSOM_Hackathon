@@ -8,7 +8,9 @@ try {
     $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
     $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($product);
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        echo json_encode($product);
+    }
 } catch (PDOException $e) {
     echo json_encode([]);
 }

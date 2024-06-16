@@ -61,9 +61,30 @@ include_once("../../Sidebar/sidebar.html");
                 </tr>
             </thead>
             <tbody id="recent-deposits-body">
-           
+            <?php
+            $totalDebit=0;
+            include_once("../../Config/config.php");
+            include_once("../../API/Fetch/fetch_debit.php");
+            try {
+                if (count($debit) > 0) {
+                    foreach ($debit as $data) {
+                        $totalDebit += $data['debit_Amount'];
+                        echo '
+                    <tr>
+                    <td class="p-2">'.htmlspecialchars($data['debit_Date']).'</td>
+                    <td class="p-2">'.htmlspecialchars($data['debit_Amount']).'</td>
+                    </tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="6" class="text-center">No records found.</td></tr>';
+                }
+            } catch (PDOException $e) {
+                echo '<tr><td colspan="6" class="text-center">Error: ' . htmlspecialchars($e->getMessage()) . '</td></tr>';
+            }
+            ?>
             </tbody>
         </table>
+        <div id="totalDebit">Total Debit: <?php echo $totalDebit; ?></div>
      </div>
  </div>
 <script>

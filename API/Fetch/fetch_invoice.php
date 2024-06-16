@@ -7,7 +7,9 @@ try {
     $stmt->bindParam(':user_id', $user_id);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($result);
+    if ($_SERVER["REQUEST_METHOD"] == "GET") {
+        echo json_encode($result);
+    }
 }catch(PDOException $e){
     echo json_encode(['error' => $e->getMessage()]);
 }
