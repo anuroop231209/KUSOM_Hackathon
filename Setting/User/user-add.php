@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="../Sidebar/styles.css">
+    <link rel="stylesheet" href="../../Sidebar/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
     <style>
         body {
@@ -83,9 +83,9 @@
     </style>
 </head>
 
-<body id="body-pd">
+<body id="body-pd" class="body-pd">
 <?php
-include_once("../Sidebar/sidebar.html");
+include_once("../../Sidebar/sidebar.html");
 ?>
 <div>
     <img class="logo" src="star_sparkle_stars_sparkles_icon_new.png" alt="">
@@ -94,7 +94,7 @@ include_once("../Sidebar/sidebar.html");
 <div class="companyName">PROBOOK</div>
 <div class="container">
     <form id="loginForm" action="submit.php" method="post">
-        <h2>Sign up </h2>
+        <h2>Sign up User for your Organization </h2>
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName"  required>
 
@@ -178,7 +178,7 @@ include_once("../Sidebar/sidebar.html");
         return re.test(email);
     }
 </script>
-<script src="../Sidebar/main.js"></script>
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<script src="../../Sidebar/main.js"></script>
+
 </body>
 </html>
