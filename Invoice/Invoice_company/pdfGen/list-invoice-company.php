@@ -7,9 +7,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="h-full bg-light body-pd" id="body-pd">
-<?php
-include_once("../../../Sidebar/sidebar.html");
-?>
 <h2>Company Invoice</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
