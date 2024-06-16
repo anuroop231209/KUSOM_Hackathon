@@ -61,9 +61,7 @@ include_once("../Sidebar/sidebar.html");
     </table>
 </div>
 
-<script src="../Sidebar/main.js"></script>  
-<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule="" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.js"></script>
+<script src="../Sidebar/main.js"></script>
 
 </body>
 </html>
