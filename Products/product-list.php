@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
     <link rel="stylesheet" href="../Sidebar/styles.css">
+    <style>
+            body{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                color: #202557;
+            }
+            table {
+                width: 80%;
+                border-collapse: collapse;
+                background-color: #F5F5F5;
+            }
+            th, td {
+                padding: 10px;
+                border: 1px solid lightgray;
+                text-align: left;
+            }
+
+</style>
 </head>
 <body class="h-full bg-light body-pd" id="body-pd">
 <?php
