@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Accounts</title>
+    <title>Customer List</title>
     <link rel="stylesheet" href="../Sidebar/styles.css">
 <style>
     .contain{
