@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Credit and Debit Information</title>
+    <title>Balance Sheet</title>
+    <link rel="stylesheet" href="../../Sidebar/styles.css">
     <style>
         table {
             width: 100%;
@@ -22,7 +23,10 @@
         }
     </style>
 </head>
-<body>
+<body id="body-pd" class="body-pd">
+<?php
+include_once("../../Sidebar/sidebar.html");
+?>
 <h1>Credit and Debit Information</h1>
 <div id="credit-section">
     <h2>Credits</h2>
@@ -119,5 +123,6 @@
         });
     });
 </script>
+<script src="../../Sidebar/main.js"></script>
 </body>
 </html>
