@@ -47,7 +47,18 @@ include_once("../Sidebar/sidebar.html");
         <tbody>
         <?php
         include_once("../Config/config.php");
-        include_once("../API/Fetch/fetch_company.php");
+        try {
+            $user_id = $_SESSION['user_id'];
+
+
+            $query = "SELECT * FROM Company where user_id= :user_id ORDER BY company_id DESC";
+            $stmt = $conn->prepare($query);
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->execute();
+            $company = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            echo '<tr><td colspan="6" class="text-center">Error: ' . htmlspecialchars($e->getMessage()) . '</td></tr>';
+        }
         try {
             if (count($company) > 0) {
                 foreach ($company as $data) {
