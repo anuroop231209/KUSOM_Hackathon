@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Accounts</title>
     <link rel="stylesheet" href="../Sidebar/styles.css">
+    <link rel="stylesheet" href="productlist.css">
 </head>
 <body class="h-full bg-light body-pd" id="body-pd">
 <?php
