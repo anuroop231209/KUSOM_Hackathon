@@ -2,12 +2,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Accounts</title>
+    <title>Company Invoice</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="h-full bg-light">
-<h2>CRM Accounts</h2>
+<body class="h-full bg-light body-pd" id="body-pd">
+<?php
+include_once("../../../Sidebar/sidebar.html");
+?>
+<h2>Company Invoice</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
         <thead class='thead-light'>
