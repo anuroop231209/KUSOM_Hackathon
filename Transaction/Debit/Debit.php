@@ -54,7 +54,7 @@ include_once("../../Sidebar/sidebar.html");
     <div class="recent-deposits">
         <h2>Recent Debits</h2>
         <table>
-            <thead  >
+            <thead >
                 <tr>
                     <th>Date</th>
                     <th>Amount</th>
