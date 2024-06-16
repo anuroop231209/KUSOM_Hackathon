@@ -6,7 +6,7 @@
     <title>CRM Accounts</title>
     <link rel="stylesheet" href="../Sidebar/styles.css">
 </head>
-<body class="h-full bg-light" id="body-pd">
+<body class="h-full bg-light body-pd" id="body-pd">
 <?php
 include_once("../Sidebar/sidebar.html");
 ?>
