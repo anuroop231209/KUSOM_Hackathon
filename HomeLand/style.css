@@ -1,0 +1,132 @@
+/* Custom styles for the landing page */
+
+body {
+    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header {
+    box-shadow: 0 4px 2px -2px grey;
+}
+
+#hero {
+    height: 100vh;
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+    color: white;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+}
+
+#hero p {
+    font-size: 1.5rem;
+}
+
+#about, #services, #pricing, #contact {
+    padding: 60px 0;
+}
+
+footer {
+    background: #f8f9fa;
+    padding: 20px 0;
+}
+
+.pricing-main-container{
+    display:grid;
+    grid-template-columns: 300px 300px 300px;
+    column-gap:20px ;
+    padding-left: 250px;
+    padding-top: 130px;
+  }
+  
+  .pricing-container{
+   
+    height:480px;
+    display:inline-block;
+    grid-template-rows:130px 50px 170px 0px;
+    row-gap: 50px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    padding-right: 30px;
+
+  }
+  
+  
+  
+  /*first-row*/
+  
+  .heading{
+    font-weight: bold;
+    
+    padding-left:12px;
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  
+  .information{
+  padding-left:12px;
+  font-size: 12px;
+
+  margin-bottom: 20px;
+  }
+  
+  
+  
+  
+  /*second-row*/
+  .digit{
+    
+    font-size: 300px;
+    font-weight:bold;
+  }
+  
+  .time{
+    font-family: Roboto,Arial;
+    font-size: 12px;
+  }
+  
+  
+  /*third-row*/
+  .inclusion{
+    
+    font-size: 12px;
+    padding-left:12px;
+  
+  }
+  
+  
+  
+  /*fourth-row*/
+  .button-container{
+    padding-left: 12px;
+  }
+  .button{
+  width:100px;
+  height:45px ;
+  color: white;
+  background-color:#202557 ;
+  border:none;
+  border-radius: 4px;
+  }
+  
+  .button:hover{
+    opacity: 0.5;
+  }
+  
+  .button:active{
+    opacity:0.9;
+  }
+    
+  
+  .logo{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    
+  }
+
+  .probook{
+    margin-left: 2px;
+    color: #202557;
+    font-weight: 400;
+  }
