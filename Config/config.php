@@ -18,5 +18,5 @@ try {
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
-session_start();
+//session_start();
 $_SESSION['user_id'] = 2;
