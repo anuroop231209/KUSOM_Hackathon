@@ -9,19 +9,29 @@ try {
     $user_id = $_SESSION['user_id'];
     $invoice_id = $_GET['invoice_id'];
     // Fetching invoice data
-    $stmt = $conn->prepare('SELECT * FROM Invoice_company WHERE invoice_id = :invoice_id');
+    $stmt = $conn->prepare('SELECT * FROM Invoice WHERE invoice_id = :invoice_id');
     $stmt->bindValue(':invoice_id', $invoice_id, PDO::PARAM_INT);
     $stmt->execute();
     $invoice = $stmt->fetch(PDO::FETCH_ASSOC);
 
      // Assuming invoice_id is passed as a query parameter
-    $customer_id = $invoice['customer_id'];
+    if( $invoice['customer_id'] == null) {
+        $company_id = $invoice['company_id'];
+        $stmt = $conn->prepare('SELECT * FROM Company WHERE company_id = :company_id');
+        $stmt->bindValue(':company_id', $company_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+    } else {
+        $customer_id = $invoice['customer_id'];
+        $stmt = $conn->prepare('SELECT * FROM Customer WHERE customer_id = :customer_id');
+        $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     $product_id = $invoice['product_id'];
     // Fetching customer data
-    $stmt = $conn->prepare('SELECT * FROM Customer WHERE customer_id = :customer_id');
-    $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
-    $stmt->execute();
-    $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+
 
     // Fetching product data
     $stmt = $conn->prepare('SELECT * FROM Product WHERE product_id = :product_id');
