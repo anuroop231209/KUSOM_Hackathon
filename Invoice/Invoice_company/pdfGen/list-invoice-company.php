@@ -6,10 +6,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="h-full bg-light body-pd" id="body-pd">
-<?php
-include_once("../../../Sidebar/sidebar.html");
-?>
+<body class="h-full bg-light" >
 <h2>Company Invoice</h2>
 <div class='table-responsive'>
     <table class='table table-bordered table-sm'>
@@ -64,6 +61,7 @@ include_once("../../../Sidebar/sidebar.html");
         </tbody>
     </table>
 </div>
+<button type="button" class="hidden-button"><a href="../add_invoice_company.php" class="styled-button"> Back to add Invoice</a></button>
 
 <!-- Bootstrap JavaScript (optional) -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

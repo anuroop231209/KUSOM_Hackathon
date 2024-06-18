@@ -6,7 +6,7 @@ try {
 
     // Fetch Credit Data
     $creditQuery = "
-        SELECT 
+        SELECT  
             Credit.*, 
             Customer.firstname AS customer_name,
             Company.companyName AS company_name

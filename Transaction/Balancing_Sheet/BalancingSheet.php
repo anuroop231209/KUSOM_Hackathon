@@ -3,124 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <title>Balance Sheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../Sidebar/styles.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        .totals {
-            margin-top: 20px;
-        }
-    </style>
 </head>
-<body id="body-pd" class="body-pd">
+<body id="body-pd" class="body-pd p-6 bg-gray-100">
 <?php
 include_once("../../Sidebar/sidebar.html");
 ?>
-<h1>Credit and Debit Information</h1>
-<div id="credit-section">
-    <h2>Credits</h2>
-    <table id="credit-table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Credit Date</th>
-            <th>Amount</th>
+<h1 class="text-3xl font-bold mb-6">Credit and Debit Information</h1>
 
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div id="credit-section" class="bg-white p-4 rounded shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Credits</h2>
+        <table id="credit-table" class="w-full table-auto border-collapse">
+            <thead>
+            <tr>
+                <th class="px-4 py-2 border border-gray-300 bg-gray-100">Name</th>
+                <th class="px-4 py-2 border border-gray-300 bg-gray-100">Credit Date</th>
+                <th class="px-4 py-2 border border-gray-300 bg-gray-100">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Credit rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
 
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Credit rows will be inserted here -->
-        </tbody>
-    </table>
+    <div id="debit-section" class="bg-white p-4 rounded shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Debits</h2>
+        <table id="debit-table" class="w-full table-auto border-collapse">
+            <thead>
+            <tr>
+                <th class="px-4 py-2 border border-gray-300 bg-gray-100">Name</th>
+                <th class="px-4 py-2 border border-gray-300 bg-gray-100">Debit Date</th>
+                <th class="px-4 py-2 border border-gray-300 bg-gray-100">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Debit rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
 </div>
 
-<div id="debit-section">
-    <h2>Debits</h2>
-    <table id="debit-table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Debit Date</th>
-            <th>Amount</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Debit rows will be inserted here -->
-        </tbody>
-    </table>
+<div class="totals mt-8 bg-white p-4 rounded shadow-md">
+    <h2 class="text-2xl font-semibold mb-4">Totals</h2>
+    <p class="text-lg">Total Credit: <span id="total-credit" class="font-bold"></span></p>
+    <p class="text-lg">Total Debit: <span id="total-debit" class="font-bold"></span></p>
+    <p class="text-lg">Net Amount: <span id="net-amount" class="font-bold"></span></p>
 </div>
 
-<div class="totals">
-    <h2>Totals</h2>
-    <p>Total Credit: <span id="total-credit"></span></p>
-    <p>Total Debit: <span id="total-debit"></span></p>
-    <p>Net Amount: <span id="net-amount"></span></p>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $.ajax({
-            url: '../../API/Fetch/fetch_balance_sheet.php', // Adjust the path to your PHP script
-            method: 'GET',
-            dataType: 'json',
-            success: function(response) {
-                if (response) {
+    document.addEventListener('DOMContentLoaded', function() {
+        axios.get('../../API/Fetch/fetch_balance_sheet.php') // Adjust the path to your PHP script
+            .then(function(response) {
+                if (response.data) {
                     // Populate Credit Table
                     var creditRows = '';
-                    response.credits.forEach(function(credit) {
+                    response.data.credits.forEach(function(credit) {
                         creditRows += '<tr>';
                         if(credit.customer_name == null) {
                             creditRows += '<td>' + (credit.company_name ? credit.company_name : '') + '</td>';
-                        }else {
+                        } else {
                             creditRows += '<td>' + (credit.customer_name ? credit.customer_name : '') + '</td>';
                         }
                         creditRows += '<td>' + credit.credit_Date + '</td>'; // Adjust field names as necessary
-                        creditRows += '<td>' + credit.credit_Amount + '</td>';
-
+                        creditRows += '<td>' + "Rs."+credit.credit_Amount + '</td>';
                         creditRows += '</tr>';
                     });
-                    $('#credit-table tbody').html(creditRows);
+                    document.querySelector('#credit-table tbody').innerHTML = creditRows;
 
                     // Populate Debit Table
                     var debitRows = '';
-                    response.debits.forEach(function(debit) {
+                    response.data.debits.forEach(function(debit) {
                         debitRows += '<tr>';
                         if(debit.customer_name == null){
                             debitRows += '<td>' + (debit.company_name ? debit.company_name : '') + '</td>';
-                        }else {
+                        } else {
                             debitRows += '<td>' + (debit.customer_name ? debit.customer_name : '') + '</td>';
                         }
                         debitRows += '<td>' + debit.debit_Date + '</td>'; // Adjust field names as necessary
-                        debitRows += '<td>' + debit.debit_Amount + '</td>';
-
+                        debitRows += '<td>' + "Rs."+debit.debit_Amount + '</td>';
                         debitRows += '</tr>';
                     });
-                    $('#debit-table tbody').html(debitRows);
+                    document.querySelector('#debit-table tbody').innerHTML = debitRows;
 
                     // Display Totals
-                    $('#total-credit').text(response.totalCredit);
-                    $('#total-debit').text(response.totalDebit);
-                    $('#net-amount').text(response.netAmount);
+                    document.querySelector('#total-credit').textContent = "Rs."+response.data.totalCredit;
+                    document.querySelector('#total-debit').textContent = "Rs."+response.data.totalDebit;
+                    document.querySelector('#net-amount').textContent = "Rs."+response.data.netAmount;
                 }
-            },
-            error: function() {
-                console.log('Error fetching data.');
-            }
-        });
+            })
+            .catch(function(error) {
+                console.log('Error fetching data:', error);
+            });
     });
 </script>
 <script src="../../Sidebar/main.js"></script>
