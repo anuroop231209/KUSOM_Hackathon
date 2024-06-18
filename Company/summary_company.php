@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Company Summary</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        #serverError {
+            color: red;
+            font-weight: bold;
+            /* Add any other styles you want for error messages */
+        }
+
+        #serverSuccess {
+            color: green;
+            font-weight: bold;
+            /* Add any other styles you want for success messages */
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
@@ -91,9 +106,10 @@
             serverError.textContent = '';
             serverSuccess.textContent = '';
             const formData = new FormData(this);
-            axios.post('../API/Update/update_customer.php', formData)
+            axios.post('../API/Update/update_company.php', formData)
                 .then(function (response) {
                     if (response.data.success) {
+                        console.log(response.data.message)
                         serverSuccess.textContent = response.data.message;
                     } else {
                         serverError.textContent = response.data.message;

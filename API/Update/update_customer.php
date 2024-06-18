@@ -1,9 +1,6 @@
 <?php
 include_once '../../Config/config.php';
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../Validation/signIn.html');
-    exit();
-}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
@@ -21,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $response = [];
 
     try {
-        $query = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, phone = :contact_number, street = :street, city = :city, state = :state, postalcode = :postalcode, country = :country WHERE user_id = :user_id AND customer_id=:customer_id ";
+        $query = "UPDATE Customer SET firstname = :first_name, lastname = :last_name, email = :email, phone = :contact_number, street = :street, city = :city, state = :state, postalcode = :postalcode, country = :country WHERE user_id = :user_id AND customer_id=:customer_id ";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':customer_id', $customer_id);
