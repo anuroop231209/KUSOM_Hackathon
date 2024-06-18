@@ -20,10 +20,10 @@
                 </div>
                 <div class="card-body">
                     <form id="clientForm">
-                        <div id="companySelector" class="form-group">
-                            <label for="companySelect">Company Name</label>
-                            <select id="companySelect" name="company_id" class="form-control" required>
-                                <option value="">Select a Company</option>
+                        <div class="form-group">
+                            <label for="clientSelect">Client Name</label>
+                            <select id="clientSelect" name="client" class="form-control" required>
+                                <option value="">Select a client</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -126,7 +126,6 @@
         axios.post('invoice_back.php', formData)
             .then(response => {
               if(response.data.success) {
-                  console.log(response.data);
                   successMessage.textContent = response.data;
                   successMessage.style.display = 'block';
                   failureMessage.style.display = 'none';

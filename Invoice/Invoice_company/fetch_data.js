@@ -1,23 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    axios.get('../../API/Fetch/fetch_company.php')
+    axios.get('../../API/Fetch/fetch_client.php')
         .then(response => {
-            const company = response.data;
-            console.log(company);
-            const companySelect = document.getElementById('companySelect');
-            if (company.length === 0) {
-                alert('No Company found. Add company .');
+            const clients = response.data;
+            const clientSelect = document.getElementById('clientSelect');
+            if (clients.length === 0) {
+                alert('No clients found. Add a customer or company.');
             } else {
-                company.forEach(company => {
+                clients.forEach(client => {
                     const option = document.createElement('option');
-                    option.value = company.company_id;
-                    option.textContent = company.companyName;
-                    companySelect.appendChild(option);
+                    option.value = `${client.type}-${client.id}`;
+                    option.textContent = `${client.name} (${client.type})`;
+                    clientSelect.appendChild(option);
                 });
             }
         })
         .catch(error => {
-            console.error('Error fetching company:', error);
+            console.error('Error fetching clients:', error);
         });
 
 
