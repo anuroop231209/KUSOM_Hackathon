@@ -21,7 +21,7 @@
         <h1><?= $businessInfo['business_name'] ?></h1>
         <p><?= $businessInfo['address'] ?></p>
         <p>Contact: <?= $businessInfo['contact_number'] ?> | Email: <?= $businessInfo['email'] ?> | Website: <?= $businessInfo['website'] ?></p>
-        <img src="<?= $businessInfo['logo_path'] ?>" alt="Business Logo" style="max-width: 150px;">
+        <img src="<?='http://localhost/'. $businessInfo['logo_path'] ?>" alt="Business Logo" style="max-width: 150px;">
     </div>
 
     <div class="invoice-info">
@@ -32,14 +32,26 @@
         <p><strong>Terms:</strong> <?= $invoice['terms'] ?></p>
     </div>
 
-    <div class="customer-info">
-        <h3>Bill To:</h3>
-        <p><?= $customer['firstname'] . ' ' . $customer['lastname'] ?></p>
-        <p><?= $customer['street'] ?></p>
-        <p><?= $customer['city'] . ', ' . $customer['state_region'] . ' ' . $customer['postalcode'] ?></p>
-        <p>Email: <?= $customer['email'] ?> | Phone: <?= $customer['phone'] ?></p>
-        <p><strong>Company:</strong> <?= $customer['company_id'] ?></p>
-    </div>
+    <?php if($type == "Customer"): ?>
+        <div class="customer-info">
+            <h3>Bill To:</h3>
+            <p><?= $customer['firstname'] . ' ' . $customer['lastname'] ?></p>
+            <p><?= $customer['street'] ?></p>
+            <p><?= $customer['city'] . ', ' . $customer['state_region'] . ' ' . $customer['postalcode'] ?></p>
+            <p>Email: <?= $customer['email'] ?> | Phone: <?= $customer['phone'] ?></p>
+            <p><strong>Company:</strong> <?= $customer['company_id'] ?></p>
+        </div>
+    <?php else: ?>
+        <div class="customer-info">
+            <h3>Bill To:</h3>
+            <p><?= $customer['companyName'] ?></p>
+            <p><?= $customer['companyAddress'] ?></p>
+            <p><?= $customer['city'] . ', ' . $customer['state'] ?></p>
+            <p>Email: <?= $customer['companyEmail'] ?> | Phone: <?= $customer['phoneNumber'] ?></p>
+            <p><strong>Company:</strong> <?= $customer['company_id'] ?></p>
+        </div>
+    <?php endif; ?>
+
 
     <div class="invoice-details">
         <table>

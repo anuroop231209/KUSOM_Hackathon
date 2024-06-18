@@ -1,11 +1,12 @@
 <?php
-require("../../../vendor/autoload.php");
-include_once '../../../Config/config.php';
+require("../../vendor/autoload.php");
+include_once '../../Config/config.php';
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
 try {
 
+    $type = null;
     $user_id = $_SESSION['user_id'];
     $invoice_id = $_GET['invoice_id'];
     // Fetching invoice data
@@ -21,12 +22,14 @@ try {
         $stmt->bindValue(':company_id', $company_id, PDO::PARAM_INT);
         $stmt->execute();
         $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+        $type="Company";
     } else {
         $customer_id = $invoice['customer_id'];
         $stmt = $conn->prepare('SELECT * FROM Customer WHERE customer_id = :customer_id');
         $stmt->bindValue(':customer_id', $customer_id, PDO::PARAM_INT);
         $stmt->execute();
         $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+        $type="Customer";
     }
 
     $product_id = $invoice['product_id'];

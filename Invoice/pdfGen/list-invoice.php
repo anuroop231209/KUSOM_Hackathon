@@ -26,8 +26,8 @@
         </thead>
         <tbody>
         <?php
-        include_once("../../../Config/config.php");
-    include_once("../../../API/Fetch/fetch_invoice.php");
+        include_once("../../Config/config.php");
+    include_once("../../API/Fetch/fetch_invoice.php");
         try {
 
             if (count($invoice) > 0) {

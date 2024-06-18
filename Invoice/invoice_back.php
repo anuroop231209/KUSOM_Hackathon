@@ -1,5 +1,5 @@
 <?php
-include '../../Config/config.php';
+include '../Config/config.php';
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $user_id = $_SESSION['user_id'];

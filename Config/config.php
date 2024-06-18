@@ -19,4 +19,6 @@ try {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
 //session_start();
+const FTP_USER = 'silent-night';
+const FTP_PASSWORD = 'xampp';
 $_SESSION['user_id'] = 2;

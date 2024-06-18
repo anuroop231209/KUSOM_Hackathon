@@ -1,9 +1,6 @@
 <?php
 include_once('../../Config/config.php');
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../Validation/signIn.html');
-    exit();
-}
+include_once('../ftp_upload.php');
 if($_SERVER["REQUEST_METHOD"]=="POST") {
     $user_id = $_SESSION['user_id'];
     $business_id = $_POST['business_id'];
@@ -12,8 +9,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     $contact_number = $_POST['contact_number'];
     $email = $_POST['email'];
     $website = $_POST['website'];
-    $logo_path = $_POST['logo_path'];
-    
+    $logo_path = $_POST['logo_path_up'];
+
+    if (isset($_FILES['logo_path']) && $_FILES['logo_path']['error'] == 0) {
+        $logo_path = uploadFileViaFTP($_FILES['logo_path'], 'website/project/file_upload');
+    } else {
+        // Handle case where no new file is uploaded
+        $logo_path = $_POST['logo_path']; // Ensure this is set in your form as a hidden input
+    }
+
+
     $response =[];
     
     try {

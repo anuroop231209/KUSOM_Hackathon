@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Form</title>
-    <link rel="stylesheet" href="../../Sidebar/styles.css">
+    <link rel="stylesheet" href="../Sidebar/styles.css">
     <link rel="stylesheet" href="invoice.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body id="body-pd">
-<?php include("../../Sidebar/sidebar.html"); ?>
+<?php include("../Sidebar/sidebar.html"); ?>
 <div class="container mt-4">
     <div class="row">
         <!-- Client Info Section -->
@@ -144,7 +144,7 @@
             });
     }
 </script>
-<script src="../../Sidebar/main.js"></script>
+<script src="../Sidebar/main.js"></script>
 <x></x>
 </body>
 </html>
