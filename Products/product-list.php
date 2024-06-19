@@ -46,7 +46,7 @@ include_once("../Sidebar/sidebar.html");
                         <td class="p-2">'.htmlspecialchars($data['productPrice']).'</td>
                         <td class="p-2">'.htmlspecialchars($data['productDescription']).'</td>
                         <td class="p-2">
-                            <a href="summary.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-info btn-sm">View</a>
+                            <a href="summary_product.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-info btn-sm">View</a>
                             <a href="delete.php?product_id='.htmlspecialchars($data['product_id']).'" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>';
