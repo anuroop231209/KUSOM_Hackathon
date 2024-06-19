@@ -1,132 +1,324 @@
-/* Custom styles for the landing page */
+/* General Styles */
 
 body {
-    font-family: Arial, sans-serif;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333; /* Dark text color */
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
 
 header {
-    box-shadow: 0 4px 2px -2px grey;
+  background-color: #202557; /* Dark blue background */
+  color: white; /* White text color */
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.logo {
+  height: 40px; /* Adjust logo height as needed */
+}
+
+.navbar-toggler {
+  display: none; /* Hide navbar toggler for desktop view */
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+   margin-left: 10px;
+   margin-top: -40px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* Hero Section Styles */
+
 #hero {
-    height: 100vh;
-    background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-    color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #hero h1 {
-    font-size: 3.5rem;
+  font-size: 2.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
-#hero p {
-    font-size: 1.5rem;
+#hero .btn-primary {
+  margin-top: 200px;
 }
 
-#about, #services, #pricing, #contact {
-    padding: 60px 0;
+.learn-more-btn {
+  background-color: #202557;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 1000vh;
+  text-decoration: none; /* Remove underline */
+  
 }
+
+.learn-more-btn:hover {
+  background-color: #394867; /* Darker shade on hover */
+  color: white;
+}
+
+/* About Section Styles */
+
+#about {
+  padding: 100px 0;
+}
+
+#about h2 {
+  text-align: center;
+}
+
+#about ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Services Section Styles */
+
+#services {
+  background-color: #ffffff; /* White background */
+  padding: 100px 0;
+  text-align: center;
+}
+
+#services h2 {
+  margin-bottom: 50px;
+}
+
+#services .col-md-4 {
+  margin-bottom: 30px;
+}
+
+/* Pricing Section Styles */
+
+#pricing {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 100px 0;
+  text-align: center;
+}
+
+#pricing h2 {
+  margin-bottom: 50px;
+}
+
+.pricing-options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.pricing-container {
+  width: 300px;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.pricing-container:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.price-digit {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.inclusion {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.inclusion p {
+  margin-bottom: 5px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button {
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Contact Section Styles */
+
+#contact {
+  background-color: #ffffff; /* White background */
+  padding: 100px 0;
+  text-align: center;
+}
+
+#contact h2 {
+  margin-bottom: 50px;
+}
+
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#contact form .form-group {
+  margin-bottom: 20px;
+}
+
+#contact form input,
+#contact form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#contact form textarea {
+  resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+#contact form button {
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#contact form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer Styles */
 
 footer {
-    background: #f8f9fa;
-    padding: 20px 0;
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 30px 0;
+  text-align: center;
 }
 
-.pricing-main-container{
-    display:grid;
-    grid-template-columns: 300px 300px 300px;
-    column-gap:20px ;
-    padding-left: 250px;
-    padding-top: 130px;
-  }
-  
-  .pricing-container{
-   
-    height:480px;
-    display:inline-block;
-    grid-template-rows:130px 50px 170px 0px;
-    row-gap: 50px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-    padding-right: 30px;
+footer a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+}
 
-  }
-  
-  
-  
-  /*first-row*/
-  
-  .heading{
-    font-weight: bold;
-    
-    padding-left:12px;
-    font-size: 30px;
-    margin-bottom: 5px;
-  }
-  
-  .information{
-  padding-left:12px;
-  font-size: 12px;
+/* Responsive Design */
 
-  margin-bottom: 20px;
-  }
-  
-  
-  
-  
-  /*second-row*/
-  .digit{
-    
-    font-size: 300px;
-    font-weight:bold;
-  }
-  
-  .time{
-    font-family: Roboto,Arial;
-    font-size: 12px;
-  }
-  
-  
-  /*third-row*/
-  .inclusion{
-    
-    font-size: 12px;
-    padding-left:12px;
-  
-  }
-  
-  
-  
-  /*fourth-row*/
-  .button-container{
-    padding-left: 12px;
-  }
-  .button{
-  width:100px;
-  height:45px ;
-  color: white;
-  background-color:#202557 ;
-  border:none;
-  border-radius: 4px;
-  }
-  
-  .button:hover{
-    opacity: 0.5;
-  }
-  
-  .button:active{
-    opacity:0.9;
-  }
-    
-  
-  .logo{
-    height: 50px;
-    width: 50px;
-    display: inline-block;
-    
+@media (max-width: 768px) {
+  .navbar-toggler {
+      display: block; /* Display navbar toggler for mobile */
+      background-color: #202557; /* Dark blue background for toggler */
+      color: white; /* White text color for toggler */
+      border: none;
+      padding: 10px 15px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1500;
   }
 
-  .probook{
-    margin-left: 2px;
-    color: #202557;
-    font-weight: 400;
+  .navbar-collapse {
+      display: none; /* Hide navbar menu by default on mobile */
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #202557; /* Dark blue background for menu */
+      padding: 10px 0;
   }
+
+  .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .nav-item {
+      margin: 0;
+  }
+
+  .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+  }
+
+  .nav-link:hover {
+      background-color: #394867; /* Darker blue on hover */
+  }
+
+  .navbar-collapse.show {
+      display: flex;
+  }
+
+  #hero h1 {
+      font-size: 2rem;
+  }
+
+  .pricing-container {
+      width: calc(100% - 40px); /* Full width pricing containers */
+      max-width: 300px;
+  }
+}
+
