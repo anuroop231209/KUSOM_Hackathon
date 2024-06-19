@@ -3,8 +3,8 @@ include_once '../../Config/config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $firstname = $_POST['firstName'];
+    $lastname = $_POST['lastName'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $street = $_POST['street'];

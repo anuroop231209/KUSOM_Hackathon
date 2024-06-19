@@ -102,7 +102,9 @@ include_once("../Sidebar/sidebar.html");
 
         $(document).ready(function() {
             // Initialize country dropdown using country-select-js library
-            $("#country").countrySelect();
+            $("#country").countrySelect({
+                defaultCountry: "np"
+            });
             // Form submission handling
             $("#companyForm").submit(function(event) {
                 event.preventDefault(); // Prevent the form from submitting

@@ -9,6 +9,23 @@
     <link rel="stylesheet" href="add-product.css">
     <link rel="stylesheet" href="../Sidebar/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .success-message {
+            color: green;
+            border: 2px solid green;
+            padding: 10px;
+            display: none;
+            border-radius: 5px;
+        }
+
+        .error-message {
+            color: red;
+            border: 2px solid red;
+            padding: 10px;
+            display: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body id="body-pd">
 <?php
@@ -16,8 +33,8 @@ include_once("../Sidebar/sidebar.html");
 ?>
 
 <div class="reg">
-    <form id="registrationForm" action="../API/Insert/insert_product.php" method="post">
-        <label for="product-registiration"><h2> Product Registration</h2></label>
+    <form id="registrationForm">
+        <h2> Product Registration</h2>
         <label for="Name">Name</label>
         <input type="text" id="Name" name="Name" required placeholder="Enter product name"><br>
 
@@ -28,13 +45,10 @@ include_once("../Sidebar/sidebar.html");
         <input type="text" id="Description" name="Description" placeholder="Description"><br>
         
         <button type="submit">Register</button>
+    </form>
         <span id="serverError" class="error-message"></span>
         <span id="serverSuccess" class="success-message"></span>
-    </div>
-    </form>
-   
-   
-    
+     </div>
 
     <script>
             document.getElementById('registrationForm').addEventListener('submit', function(event) {
@@ -49,9 +63,12 @@ include_once("../Sidebar/sidebar.html");
                     .then(function(response){
                         if(response.data.success){
                             serverSuccess.textContent=response.data.message;
+                            serverSuccess.style.display='block';
+                            serverError.style.display='none';
                         } else{
                             serverError.textContent=response.data.message;
-
+                            serverError.style.display='block';
+                            serverSuccess.style.display='none';
                         }
                     })
                     .catch(error => {
