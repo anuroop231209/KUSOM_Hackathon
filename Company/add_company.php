@@ -9,6 +9,23 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/css/countrySelect.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<style>
+    .success-message {
+        color: green;
+        border: 2px solid green;
+        padding: 10px;
+        display: none;
+        border-radius: 5px;
+    }
+
+    .error-message {
+        color: red;
+        border: 2px solid red;
+        padding: 10px;
+        display: none;
+        border-radius: 5px;
+    }
+</style>
 </head>
 <body id="body-pd">
 <?php
@@ -34,8 +51,7 @@ include_once("../Sidebar/sidebar.html");
                 </div><br>
 
                 <div>
-                    <span id="success-message" class="success-message"></span>
-                    <span id="error-message" class="error-message"></span>
+
                     <h2>Contact Information</h2>
 
                     <div class="name">
@@ -76,43 +92,47 @@ include_once("../Sidebar/sidebar.html");
                     <button type="submit">Save</button>
                 </div>
             </form>
+            <span id="success-message" class="success-message"></span>
+            <span id="error-message" class="error-message"></span>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/country-select-js/2.0.2/js/countrySelect.min.js"></script>
-    <script src="company.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded",function() {
-            const  serverSuccess = document.getElementById("success-message");
-            const serverError = document.getElementById("error-message");
 
-            serverSuccess.textContent='';
-            serverError.textContent='';
+        $(document).ready(function() {
+            // Initialize country dropdown using country-select-js library
+            $("#country").countrySelect();
+            // Form submission handling
+            $("#companyForm").submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting
 
-            $(document).ready(function () {
-                $("#country").countrySelect();
-            });
-            document.getElementById("CompanyForm").addEventListener('submit', function (event) {
-                event.preventDefault();
+                const serverSuccess = document.getElementById("success-message");
+                const serverError = document.getElementById("error-message");
+
+                serverSuccess.textContent = '';
+                serverError.textContent = '';
+
                 const formData = new FormData(this);
+
                 axios.post('../API/Insert/insert_company.php', formData)
-                    .then(function (response) {
-                        if(response.data.success) {
+                    .then(function(response) {
+                        if (response.data.success) {
                             serverSuccess.textContent = response.data.message;
                             serverSuccess.style.display = 'block';
                             serverError.style.display = 'none';
                         } else {
                             serverError.textContent = response.data.message;
                             serverError.style.display = 'block';
-                            serverSuccess   .style.display = 'none';
+                            serverSuccess.style.display = 'none';
                         }
                     })
-                    .catch(function (error) {
-                       serverError.textContent = 'There was an error. Please try again.';
+                    .catch(function(error) {
+                        serverError.textContent = 'There was an error. Please try again.';
                         serverError.style.display = 'block';
                         serverSuccess.style.display = 'none';
-                       console.error(error);
-                    })
+                        console.error(error);
+                    });
             });
         });
     </script>

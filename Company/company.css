@@ -97,12 +97,7 @@ button:hover {
     background-color: #1c2689;
 }
 
-/* Error message styles */
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-}
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -126,4 +121,3 @@ button:hover {
         width: 100%;
     }
 }
-
